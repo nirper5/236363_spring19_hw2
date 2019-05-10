@@ -52,32 +52,6 @@ public class Solution {
             pstmt.execute();
 
 
-//            pstmt = connection.prepareStatement("" +
-//                    "CREATE TABLE Mimouna\n" +
-//                    "(\n" +
-//                    "    mimouna_id integer,\n" +
-//                    "    user_name text NOT NULL,\n" +
-//                    " family_name text NOT NULL,\n" +
-//                    "city text NOT NULL,\n" +
-//                    "    guests_counter integer,\n" +
-//                    "    is_politician_coming boolean,\n"+
-//                    "    PRIMARY KEY (mimouna_id),\n" +
-//                    "    CHECK (mimouna_id > 0),\n" +
-//                    "    CHECK (guests_counter >= 0),\n"+
-//                    ") ");
-//            pstmt.execute();
-//            pstmt = connection.prepareStatement("" +
-//                    "CREATE TABLE Playlists\n" +
-//                    "(\n" +
-//                    "    playlist_id integer,\n" +
-//                    "    genre text NOT NULL,\n" +
-//                    "    description text NOT NULL,\n" +
-//                    "    PRIMARY KEY (playlist_id),\n" +
-//                    "    CHECK (playlist_id > 0)\n" +
-//                    ") ");
-//            pstmt.execute();
-
-
         } catch (SQLException e) {
             e.getErrorCode();
             //e.printStackTrace()();
