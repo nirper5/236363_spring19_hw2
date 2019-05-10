@@ -54,10 +54,10 @@ public class Solution {
             pstmt = connection.prepareStatement("" +
                     "CREATE TABLE MimounaList\n"+
                     "(\n" +
-                    "   list_id integer,\n" +
+                    "   mimouna_list_id integer,\n" +
                     "   city text NOT NULL,\n" +
-                    "   PRIMARY KEY (list_id),\n" +
-                    "   CHECK (list_id > 0)\n" +
+                    "   PRIMARY KEY (mimouna_list_id),\n" +
+                    "   CHECK (mimouna_list_id > 0)\n" +
                     ") ");
             pstmt.execute();
 
@@ -78,7 +78,22 @@ public class Solution {
                     ") ");
             pstmt.execute();
 
-
+            pstmt = connection.prepareStatement("" +
+                    "CREATE TABLE FollowAfter\n"+
+                    "(\n" +
+                    "   user_id integer,\n" +
+                    "   mimouna_list_id integer,\n" +
+                    "   PRIMARY KEY (user_id, mimouna_list_id),\n" +
+                    "   FOREIGN KEY(user_id)" +
+                    "       REFERENCES Users (user_id)\n" +
+                    "       ON UPDATE CASCADE\n" +
+                    "       ON DELETE CASCADE,\n" +
+                    "    FOREIGN KEY (mimouna_list_id)\n" +
+                    "        REFERENCES MimounaList (mimouna_list_id)\n" +
+                    "        ON UPDATE CASCADE\n" +
+                    "        ON DELETE CASCADE\n" +
+                    ") ");
+            pstmt.execute();
 
         } catch (SQLException e) {
             e.getErrorCode();
