@@ -16,8 +16,10 @@ import java.util.ArrayList;
 public class Solution {
 
     public static void main(String[] args) {
-        createTables();
-        clearTables();
+        //createTables();
+        dropTables();
+
+//        clearTables();
     }
 
     public static void createTables(){
@@ -135,17 +137,17 @@ public class Solution {
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         try {
-            pstmt = connection.prepareStatement("DELETE FROM Users ");
-            pstmt.execute();
-            pstmt = connection.prepareStatement("DELETE FROM Mimouna ");
-            pstmt.execute();
-            pstmt = connection.prepareStatement("DELETE FROM MimounaList ");
-            pstmt.execute();
             pstmt = connection.prepareStatement("DELETE FROM ConfirmAttendance ");
             pstmt.execute();
             pstmt = connection.prepareStatement("DELETE FROM FollowAfter ");
             pstmt.execute();
             pstmt = connection.prepareStatement("DELETE FROM MimounaInMimounaList ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM Users ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM Mimouna ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM MimounaList ");
             pstmt.execute();
         } catch (SQLException e) {
             //e.printStackTrace()();
@@ -165,7 +167,36 @@ public class Solution {
     }
 
     public static void dropTables() {
-        
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            pstmt = connection.prepareStatement("DROP TABLE IF EXISTS Users CASCADE");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DROP TABLE IF EXISTS Mimouna CASCADE");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DROP TABLE IF EXISTS MimounaList CASCADE");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DROP TABLE IF EXISTS ConfirmAttendance ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DROP TABLE IF EXISTS FollowAfter");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DROP TABLE IF EXISTS MimounaInMimounaList");
+            pstmt.execute();
+        } catch (SQLException e) {
+            //e.printStackTrace()();
+        }
+        finally {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+        }
     }
 
     public static ReturnValue addUser(User user) {

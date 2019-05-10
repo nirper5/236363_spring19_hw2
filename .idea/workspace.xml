@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2979a2d5-8cae-4b62-a8c5-f90cab93056a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mimounot/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/mimounot/AbstractTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/mimounot/BasicAPITests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/mimounot/SimpleTest.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,17 +35,26 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4736527">
+    <splitter split-orientation="horizontal" split-proportion="0.5935128">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="323">
-                  <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+                  <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="51">
+                  <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
                 </state>
               </provider>
             </entry>
@@ -62,8 +66,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="241" selection-start-line="241" selection-end-line="250" selection-end-column="28" />
+                <state relative-caret-position="51">
+                  <caret line="275" selection-start-line="275" selection-end-line="284" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -71,8 +75,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Example.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="12">
-                  <caret line="107" selection-start-line="107" selection-end-line="132" selection-end-column="9" />
+                <state relative-caret-position="153">
+                  <caret line="137" selection-start-line="137" selection-end-line="156" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -436,7 +440,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.08775731" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.2936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37378114" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -572,13 +576,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.0.0/postgresql-42.0.0.jar!/org/postgresql/core/QueryExecutorBase.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1204">
@@ -598,8 +595,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Example.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="107" selection-start-line="107" selection-end-line="132" selection-end-column="9" />
+        <state relative-caret-position="153">
+          <caret line="137" selection-start-line="137" selection-end-line="156" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -608,15 +605,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="241" selection-start-line="241" selection-end-line="250" selection-end-column="28" />
+        <state relative-caret-position="51">
+          <caret line="275" selection-start-line="275" selection-end-line="284" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
