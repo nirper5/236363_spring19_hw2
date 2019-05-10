@@ -1,0 +1,7 @@
+mimounot\business\User.class
+mimounot\data\DBConnector.class
+mimounot\data\PostgreSQLErrorCodes.class
+mimounot\business\ReturnValue.class
+mimounot\business\MimounaList.class
+mimounot\business\Mimouna.class
+mimounot\Example.class

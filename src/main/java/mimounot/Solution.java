@@ -17,6 +17,7 @@ public class Solution {
 
     public static void main(String[] args) {
         createTables();
+        clearTables();
     }
 
     public static void createTables(){
@@ -131,11 +132,40 @@ public class Solution {
     }
 
     public static void clearTables() {
-
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            pstmt = connection.prepareStatement("DELETE FROM Users ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM Mimouna ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM MimounaList ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM ConfirmAttendance ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM FollowAfter ");
+            pstmt.execute();
+            pstmt = connection.prepareStatement("DELETE FROM MimounaInMimounaList ");
+            pstmt.execute();
+        } catch (SQLException e) {
+            //e.printStackTrace()();
+        }
+        finally {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+        }
     }
 
     public static void dropTables() {
-
+        
     }
 
     public static ReturnValue addUser(User user) {
