@@ -15,8 +15,85 @@ import java.util.ArrayList;
 
 public class Solution {
 
-    public static void createTables(){
+    public static void main(String[] args) {
+        createTables();
+    }
 
+    public static void createTables(){
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+
+            pstmt = connection.prepareStatement("" +
+                    "CREATE TABLE Users\n" +
+                    "(\n" +
+                    "    user_id integer,\n" +
+                    "    user_name text NOT NULL,\n" +
+                    "    city text NOT NULL,\n" +
+                    "    politician boolean NOT NULL,\n" +
+                    "    PRIMARY KEY (user_id),\n" +
+                    "    CHECK (user_id > 0)\n" +
+                    ") ");
+            pstmt.execute();
+
+            pstmt = connection.prepareStatement("" +
+                    "CREATE TABLE Mimouna\n"+
+                    "(\n" +
+                    "   mimouna_id integer,\n" +
+                    "   user_name text NOT NULL,\n" +
+                    "   family_name text NOT NULL,\n" +
+                    "   city text NOT NULL,\n" +
+                    "   guests_counter integer,\n" +
+                    "   is_politician_coming boolean,\n" +
+                    "   PRIMARY KEY (mimouna_id),\n" +
+                    "   CHECK (mimouna_id > 0),\n" +
+                    "   CHECK (guests_counter >= 0)\n" +
+                    ") ");
+            pstmt.execute();
+
+
+//            pstmt = connection.prepareStatement("" +
+//                    "CREATE TABLE Mimouna\n" +
+//                    "(\n" +
+//                    "    mimouna_id integer,\n" +
+//                    "    user_name text NOT NULL,\n" +
+//                    " family_name text NOT NULL,\n" +
+//                    "city text NOT NULL,\n" +
+//                    "    guests_counter integer,\n" +
+//                    "    is_politician_coming boolean,\n"+
+//                    "    PRIMARY KEY (mimouna_id),\n" +
+//                    "    CHECK (mimouna_id > 0),\n" +
+//                    "    CHECK (guests_counter >= 0),\n"+
+//                    ") ");
+//            pstmt.execute();
+//            pstmt = connection.prepareStatement("" +
+//                    "CREATE TABLE Playlists\n" +
+//                    "(\n" +
+//                    "    playlist_id integer,\n" +
+//                    "    genre text NOT NULL,\n" +
+//                    "    description text NOT NULL,\n" +
+//                    "    PRIMARY KEY (playlist_id),\n" +
+//                    "    CHECK (playlist_id > 0)\n" +
+//                    ") ");
+//            pstmt.execute();
+
+
+        } catch (SQLException e) {
+            e.getErrorCode();
+            //e.printStackTrace()();
+        }
+        finally {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+        }
     }
 
     public static void clearTables() {
