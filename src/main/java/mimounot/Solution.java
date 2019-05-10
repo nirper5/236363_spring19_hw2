@@ -61,6 +61,25 @@ public class Solution {
                     ") ");
             pstmt.execute();
 
+            pstmt = connection.prepareStatement("" +
+                    "CREATE TABLE ConfirmAttendance\n"+
+                    "(\n" +
+                    "   user_id integer,\n" +
+                    "   mimouna_id integer,\n" +
+                    "   PRIMARY KEY (user_id, mimouna_id),\n" +
+                    "   FOREIGN KEY(user_id)" +
+                    "       REFERENCES Users (user_id)\n" +
+                    "       ON UPDATE CASCADE\n" +
+                    "       ON DELETE CASCADE,\n" +
+                    "    FOREIGN KEY (mimouna_id)\n" +
+                    "        REFERENCES Mimouna (mimouna_id)\n" +
+                    "        ON UPDATE CASCADE\n" +
+                    "        ON DELETE CASCADE\n" +
+                    ") ");
+            pstmt.execute();
+
+
+
         } catch (SQLException e) {
             e.getErrorCode();
             //e.printStackTrace()();
