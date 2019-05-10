@@ -95,6 +95,23 @@ public class Solution {
                     ") ");
             pstmt.execute();
 
+            pstmt = connection.prepareStatement("" +
+                    "CREATE TABLE MimounaInMimounaList\n"+
+                    "(\n" +
+                    "   mimouna_id integer,\n" +
+                    "   mimouna_list_id integer,\n" +
+                    "   PRIMARY KEY (mimouna_id, mimouna_list_id),\n" +
+                    "   FOREIGN KEY(mimouna_id)" +
+                    "       REFERENCES Mimouna (mimouna_id)\n" +
+                    "       ON UPDATE CASCADE\n" +
+                    "       ON DELETE CASCADE,\n" +
+                    "    FOREIGN KEY (mimouna_list_id)\n" +
+                    "        REFERENCES MimounaList (mimouna_list_id)\n" +
+                    "        ON UPDATE CASCADE\n" +
+                    "        ON DELETE CASCADE\n" +
+                    ") ");
+            pstmt.execute();
+
         } catch (SQLException e) {
             e.getErrorCode();
             //e.printStackTrace()();
