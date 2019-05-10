@@ -51,6 +51,15 @@ public class Solution {
                     ") ");
             pstmt.execute();
 
+            pstmt = connection.prepareStatement("" +
+                    "CREATE TABLE MimounaList\n"+
+                    "(\n" +
+                    "   list_id integer,\n" +
+                    "   city text NOT NULL,\n" +
+                    "   PRIMARY KEY (list_id),\n" +
+                    "   CHECK (list_id > 0)\n" +
+                    ") ");
+            pstmt.execute();
 
         } catch (SQLException e) {
             e.getErrorCode();
