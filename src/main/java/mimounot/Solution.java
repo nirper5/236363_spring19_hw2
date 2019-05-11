@@ -477,16 +477,95 @@ public class Solution {
         return OK;
     }
 
-    public static ReturnValue addMimounalist(MimounaList mimounaList) {
-        return null;
+      public static ReturnValue addMimounalist(MimounaList mimounaList) {
+        Connection connection = DBConnector.getConnection();
+        if( mimounaList.getId()<=0 || mimounaList.getCity()==null )
+        { return BAD_PARAMS; }
+        PreparedStatement pstmt = null;
+        try {
+            if(mimounaListExist(mimounaList.getId())) { return ALREADY_EXISTS ;}
+
+            pstmt = connection.prepareStatement("INSERT INTO MimounaList" +
+                    " VALUES (?, ?)");
+            pstmt.setInt(1,mimounaList.getId());
+            pstmt.setString(2, mimounaList.getCity());
+            pstmt.execute();
+
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static MimounaList getMimounalist(Integer mimounalistId) {
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        MimounaList mimounaList=new MimounaList();
+        if(mimounalistId==null) { return MimounaList.badMimounalist(); }
+        try {
+            pstmt = connection.prepareStatement("SELECT * FROM MimounaList WHERE mimouna_list_id= ?");
+            pstmt.setInt(1, mimounalistId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0)   //if the value is SQL NULL, the value returned is 0
+            {
+                results.close();
+                return MimounaList.badMimounalist();
+            }
+            mimounaList.setId(results.getInt(1));
+            mimounaList.setCity(results.getString(2));
+            results.close();
+
+        } catch (SQLException e) {
+            return MimounaList.badMimounalist();
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+        }
+        return mimounaList;
     }
 
     public static ReturnValue deleteMimounalist(MimounaList mimounalist) {
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!mimounaListExist(mimounalist.getId())) return NOT_EXISTS;
+
+            pstmt = connection.prepareStatement("DELETE FROM MimounaList WHERE mimouna_list_id= ? ");
+            pstmt.setInt(1, mimounalist.getId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static ReturnValue attendMimouna(Integer mimounaId, Integer guests){
