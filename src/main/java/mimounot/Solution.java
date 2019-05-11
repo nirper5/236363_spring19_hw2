@@ -631,7 +631,48 @@ public class Solution {
     }
 
     public static ReturnValue confirmAttendancePoliticianToMimouna(Integer mimounaId, Integer userId){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!mimounaExist(mimounaId) || userNotExist(userId)) {return NOT_EXISTS; }
+            pstmt = connection.prepareStatement("SELECT * FROM Users WHERE user_id= ?");
+            pstmt.setInt(1, userId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            boolean politician=results.getBoolean(4);
+            if( !politician ) { return BAD_PARAMS; }
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_id) FROM ConfirmAttendance" +
+                    " WHERE mimouna_id= ?"+
+                    " AND user_id= ?");
+            pstmt.setInt(1, mimounaId);
+            pstmt.setInt(2, userId);
+            results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)!=0) {  results.close(); return OK; }
+            pstmt = connection.prepareStatement("INSERT INTO ConfirmAttendance" + " VALUES (?, ?)");
+            pstmt.setInt(1,userId);
+            pstmt.setInt(2,mimounaId);
+            pstmt.execute();
+            pstmt = connection.prepareStatement("UPDATE Mimouna"+
+                                                    " SET is_politician_coming=true"+
+                                                    " WHERE mimouna_id= ?");
+            pstmt.setInt(1, mimounaId);
+            pstmt.executeUpdate();
+            attendMimouna(mimounaId,1);
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
    public static ReturnValue addMimounaToMimounalist(Integer mimounaId, Integer mimounalistId){
