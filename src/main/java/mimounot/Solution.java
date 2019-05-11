@@ -830,9 +830,36 @@ public class Solution {
         return OK;
     }
 
-    public static Integer getMimounalistTotalGuests(Integer mimounalistId){
-        return null;
+ public static Integer getMimounalistTotalGuests(Integer mimounalistId){
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        int totalGuests=0;
+        if(mimounalistId==null) { return 0; }
+        if(mimounalistId<=0) { return 0; }
+        try {
+            pstmt = connection.prepareStatement("SELECT SUM(guests_counter) FROM Mimouna M FULL OUTER JOIN mimounainmimounalist " +
+                    "ML ON (M.mimouna_id = ML.mimouna_id) " +
+                    "WHERE mimouna_list_id= ?");
+            pstmt.setInt(1, mimounalistId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            totalGuests=results.getInt(1);
+        } catch (SQLException e) {
+            return 0;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return 0;
+            }
+        }
+        return totalGuests;
     }
+
 
     public static Integer getMimounalistFollowersCount(Integer mimounalistId){
         return null;
