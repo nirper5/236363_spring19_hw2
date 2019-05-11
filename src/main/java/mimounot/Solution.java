@@ -634,20 +634,158 @@ public class Solution {
         return null;
     }
 
-    public static ReturnValue addMimounaToMimounalist(Integer mimounaId, Integer mimounalistId){
-        return null;
+   public static ReturnValue addMimounaToMimounalist(Integer mimounaId, Integer mimounalistId){
+
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!mimounaExist(mimounaId) || !mimounaListExist(mimounalistId) ) {return BAD_PARAMS; }
+
+            pstmt = connection.prepareStatement("SELECT * FROM Mimouna WHERE mimouna_id= ?");
+            pstmt.setInt(1, mimounaId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            String mimouna_city=results.getString(4);
+            pstmt = connection.prepareStatement("SELECT * FROM MimounaList WHERE mimouna_list_id= ?");
+            pstmt.setInt(1, mimounalistId);
+            results = pstmt.executeQuery();
+            results.next();
+            String mimounaList_city=results.getString(2);
+            if(!mimouna_city.equals(mimounaList_city)) {   results.close(); return BAD_PARAMS; }
+
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_id) FROM mimounainmimounalist" +
+                    " WHERE mimouna_id= ?"+
+                    " AND mimouna_list_id= ?");
+            pstmt.setInt(1, mimounaId);
+            pstmt.setInt(2, mimounalistId);
+            results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)!=0) {  results.close(); return ALREADY_EXISTS; }
+            pstmt = connection.prepareStatement("INSERT INTO mimounainmimounalist" +
+                    " VALUES (?, ?)");
+            pstmt.setInt(1,mimounaId);
+            pstmt.setInt(2, mimounalistId);
+            pstmt.execute();
+
+
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
+
     }
 
     public static ReturnValue removeMimounaFromMimounalist(Integer mimounaId, Integer mimounalistId){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!mimounaExist(mimounaId) || !mimounaListExist(mimounalistId) ) {return NOT_EXISTS; }
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_id) FROM mimounainmimounalist WHERE mimouna_id= ?"+
+                    " AND mimouna_list_id= ?");
+            pstmt.setInt(1, mimounaId);
+            pstmt.setInt(2, mimounalistId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0) { return NOT_EXISTS; }
+            pstmt = connection.prepareStatement("DELETE FROM mimounainmimounalist" +
+                    " WHERE mimouna_id= ?"+
+                    " AND mimouna_list_id= ?");
+            pstmt.setInt(1, mimounaId);
+            pstmt.setInt(2, mimounalistId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static ReturnValue followMimounalist(Integer userId, Integer mimounalistId){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!CheckIfUserExist(userId) || !mimounaListExist(mimounalistId) ) {return NOT_EXISTS; }
+            pstmt = connection.prepareStatement("SELECT COUNT(user_id) FROM followafter" +
+                    " WHERE user_id= ?"+
+                    " AND mimouna_list_id=? ");
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, mimounalistId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)!=0) { return ALREADY_EXISTS; }
+            pstmt = connection.prepareStatement("INSERT INTO followafter" +
+                    " VALUES (?, ?)");
+            pstmt.setInt(1,userId);
+            pstmt.setInt(2, mimounalistId);
+            pstmt.execute();
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static ReturnValue stopFollowMimounalist(Integer userId, Integer mimounalistId){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!CheckIfUserExist(userId) || !mimounaListExist(mimounalistId) ) {return NOT_EXISTS; }
+            pstmt = connection.prepareStatement("SELECT COUNT(user_id) FROM followafter" +
+                    " WHERE user_id= ?"+
+                    " AND mimouna_list_id= ?");
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, mimounalistId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0) { return NOT_EXISTS; }
+            pstmt = connection.prepareStatement("DELETE FROM followafter" +
+                    " WHERE user_id= ?"+
+                    " AND mimouna_list_id= ?");
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, mimounalistId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static Integer getMimounalistTotalGuests(Integer mimounalistId){
