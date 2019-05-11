@@ -221,12 +221,12 @@ public class Example {
         }
     }
 
-    private static void selectFromTable()
+    public static void selectFromTable()
     {
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         try {
-            pstmt = connection.prepareStatement("SELECT * FROM hello_world");
+            pstmt = connection.prepareStatement("SELECT * FROM Mimouna");
             ResultSet results = pstmt.executeQuery();
             DBConnector.printResults(results);
             results.close();

@@ -16,10 +16,48 @@ import java.util.ArrayList;
 public class Solution {
 
     public static void main(String[] args) {
-        //createTables();
-        dropTables();
+        createTables();
+        Mimouna new_mimouna = Mimouna.badMimouna();
+        new_mimouna.setCity("haifa");
+        new_mimouna.setFamilyName("peretz");
+        new_mimouna.setGuestCount(0);
+        new_mimouna.setPoliticianComing(false);
+        new_mimouna.setId(1);
+        new_mimouna.setUserName("nir");
+        addMimouna(new_mimouna);
+        Example.selectFromTable();
+        //dropTables();
+        //clearTables();
+    }
 
-//        clearTables();
+    private static boolean mimounaExist(Integer mimouna_id) throws SQLException{
+        if(mimouna_id==null) return false;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt=null;
+        try {
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_id) FROM Mimouna WHERE mimouna_id = ?");
+            pstmt.setInt(1, mimouna_id);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if (results.getInt(1) == 0) {
+                results.close();
+                return false;
+            }
+            results.close();
+        } catch (SQLException e) {
+            throw e;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                throw e;
+            }
+        }
+        return true;
     }
 
     public static void createTables(){
@@ -199,9 +237,7 @@ public class Solution {
         }
     }
 
-    public static ReturnValue addUser(User user) {
-       return null;
-    }
+    public static ReturnValue addUser(User user) { return null;}
 
     public static User getUserProfile(Integer userId) {
       return null;
@@ -212,7 +248,41 @@ public class Solution {
     }
 
     public static ReturnValue addMimouna(Mimouna mimouna) {
-        return null;
+        if( mimouna.getId()<=0 || mimouna.getUserName()==null || mimouna.getFamilyName()==null ||
+                mimouna.getCity()==null || mimouna.getGuestCount()!=0 || mimouna.getIsPoliticianComing()==true){
+            return BAD_PARAMS;
+        }
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(mimounaExist(mimouna.getId())){
+               return ALREADY_EXISTS;
+            }
+            pstmt = connection.prepareStatement("INSERT INTO Mimouna" +
+                    " VALUES (?, ?, ?, ?, ?, ?)");
+            pstmt.setInt(1,mimouna.getId());
+            pstmt.setString(2, mimouna.getUserName());
+            pstmt.setString(3,mimouna.getFamilyName());
+            pstmt.setString(4,mimouna.getCity());
+            pstmt.setInt(5,mimouna.getGuestCount());
+            pstmt.setBoolean(6,mimouna.getIsPoliticianComing());
+            pstmt.execute();
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                pstmt.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static Mimouna getMimouna(Integer mimounaId) {
