@@ -16,18 +16,20 @@ import java.util.ArrayList;
 public class Solution {
 
     public static void main(String[] args) {
-//        createTables();
-//        Mimouna new_mimouna = Mimouna.badMimouna();
-//        new_mimouna.setCity("haifa");
-//        new_mimouna.setFamilyName("peretz");
-//        new_mimouna.setGuestCount(0);
-//        new_mimouna.setPoliticianComing(false);
-//        new_mimouna.setId(1);
-//        new_mimouna.setUserName("nir");
-//        addMimouna(new_mimouna);
-        Mimouna nir_mimouna = getMimouna(1);
-        System.out.println(deleteMimouna(nir_mimouna));
-        //dropTables();
+        createTables();
+        Mimouna new_mimouna = Mimouna.badMimouna();
+        new_mimouna.setCity("haifa");
+        new_mimouna.setFamilyName("peretz");
+        new_mimouna.setGuestCount(0);
+        new_mimouna.setPoliticianComing(false);
+        new_mimouna.setId(1);
+        new_mimouna.setUserName("nir");
+    //    addMimouna(new_mimouna);
+      //  System.out.println(attendMimouna(new_mimouna.getId(),5));
+        System.out.println(attendMimouna(new_mimouna.getId(),-6));
+//        Mimouna nir_mimouna = getMimouna(1);
+//        System.out.println(deleteMimouna(nir_mimouna));
+//        dropTables();
         //clearTables();
     }
 
@@ -488,7 +490,36 @@ public class Solution {
     }
 
     public static ReturnValue attendMimouna(Integer mimounaId, Integer guests){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!mimounaExist(mimounaId)) {return NOT_EXISTS; }
+            pstmt = connection.prepareStatement("SELECT * FROM Mimouna WHERE mimouna_id= ?");
+            pstmt.setInt(1, mimounaId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            int guestCount=results.getInt(5);
+            int newCount=guestCount + guests;
+            if( newCount <0 ) { return BAD_PARAMS; }
+            pstmt = connection.prepareStatement("UPDATE Mimouna SET guests_counter= ?"+"" +
+                    " WHERE mimouna_id= ?");
+            pstmt.setInt(1, newCount);
+            pstmt.setInt(2, mimounaId);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static ReturnValue confirmAttendancePoliticianToMimouna(Integer mimounaId, Integer userId){

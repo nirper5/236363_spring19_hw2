@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2979a2d5-8cae-4b62-a8c5-f90cab93056a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,21 +36,19 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48499">
+    <splitter split-orientation="horizontal" split-proportion="0.6888567">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="292">
-                  <caret line="333" column="45" selection-start-line="333" selection-start-column="45" selection-end-line="333" selection-end-column="45" />
+                <state relative-caret-position="-7717">
+                  <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#12835#12836#0" expanded="true" />
-                    <element signature="e#12933#12934#0" expanded="true" />
-                    <element signature="e#13036#13037#0" expanded="true" />
-                    <element signature="e#11372#11373#0" expanded="true" />
-                    <element signature="e#11399#11400#0" expanded="true" />
+                    <element signature="e#16922#16923#0" expanded="true" />
+                    <element signature="e#17020#17021#0" expanded="true" />
+                    <element signature="e#17123#17124#0" expanded="true" />
                     <element signature="e#11503#11504#0" expanded="true" />
                     <element signature="e#11530#11531#0" expanded="true" />
                     <element signature="e#11628#11629#0" expanded="true" />
@@ -74,7 +73,7 @@
                     <element signature="e#12579#12580#0" expanded="true" />
                     <element signature="e#12664#12665#0" expanded="true" />
                     <element signature="e#12691#12692#0" expanded="true" />
-                    <element signature="e#14547#14548#0" expanded="true" />
+                    <element signature="e#19745#19746#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -83,12 +82,11 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/business/Mimouna.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="489">
-                  <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+                <state relative-caret-position="152">
+                  <caret line="33" selection-start-line="33" selection-end-line="33" />
                   <folding>
                     <element signature="e#118#119#0" expanded="true" />
                     <element signature="e#217#218#0" expanded="true" />
-                    <element signature="e#711#712#0" expanded="true" />
                     <element signature="e#736#737#0" expanded="true" />
                   </folding>
                 </state>
@@ -102,8 +100,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="431">
-                  <caret line="393" column="14" selection-start-line="393" selection-start-column="14" selection-end-line="393" selection-end-column="14" />
+                <state relative-caret-position="328">
+                  <caret line="888" column="25" lean-forward="true" selection-start-line="888" selection-start-column="25" selection-end-line="888" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -465,9 +463,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2728" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08374083" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15525672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -476,7 +473,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.21164614" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.16909294" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.43337065" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -502,6 +499,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -635,37 +644,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="888" column="25" lean-forward="true" selection-start-line="888" selection-start-column="25" selection-end-line="888" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/business/Mimouna.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+        <state relative-caret-position="152">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#118#119#0" expanded="true" />
             <element signature="e#217#218#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
             <element signature="e#736#737#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="393" column="14" selection-start-line="393" selection-start-column="14" selection-end-line="393" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="333" column="45" selection-start-line="333" selection-start-column="45" selection-end-line="333" selection-end-column="45" />
+        <state relative-caret-position="-7717">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#12835#12836#0" expanded="true" />
-            <element signature="e#12933#12934#0" expanded="true" />
-            <element signature="e#13036#13037#0" expanded="true" />
-            <element signature="e#11372#11373#0" expanded="true" />
-            <element signature="e#11399#11400#0" expanded="true" />
+            <element signature="e#16922#16923#0" expanded="true" />
+            <element signature="e#17020#17021#0" expanded="true" />
+            <element signature="e#17123#17124#0" expanded="true" />
             <element signature="e#11503#11504#0" expanded="true" />
             <element signature="e#11530#11531#0" expanded="true" />
             <element signature="e#11628#11629#0" expanded="true" />
@@ -690,7 +696,7 @@
             <element signature="e#12579#12580#0" expanded="true" />
             <element signature="e#12664#12665#0" expanded="true" />
             <element signature="e#12691#12692#0" expanded="true" />
-            <element signature="e#14547#14548#0" expanded="true" />
+            <element signature="e#19745#19746#0" expanded="true" />
           </folding>
         </state>
       </provider>
