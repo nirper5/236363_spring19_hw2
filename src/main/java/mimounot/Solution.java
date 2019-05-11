@@ -658,7 +658,6 @@ public class Solution {
                                                     " WHERE mimouna_id= ?");
             pstmt.setInt(1, mimounaId);
             pstmt.executeUpdate();
-            attendMimouna(mimounaId,1);
         } catch (SQLException e) {
             return ERROR;
         }
