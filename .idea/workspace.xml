@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2979a2d5-8cae-4b62-a8c5-f90cab93056a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/mimounot/Example.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mimounot/Example.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,48 +35,61 @@
     <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.533022">
+    <splitter split-orientation="horizontal" split-proportion="0.48499">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+                <state relative-caret-position="292">
+                  <caret line="333" column="45" selection-start-line="333" selection-start-column="45" selection-end-line="333" selection-end-column="45" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#10573#10574#0" expanded="true" />
-                    <element signature="e#10664#10665#0" expanded="true" />
-                    <element signature="e#10764#10765#0" expanded="true" />
-                    <element signature="e#10862#10863#0" expanded="true" />
-                    <element signature="e#10965#10966#0" expanded="true" />
-                    <element signature="e#10222#10223#0" expanded="true" />
-                    <element signature="e#10249#10250#0" expanded="true" />
-                    <element signature="e#10353#10354#0" expanded="true" />
-                    <element signature="e#10380#10381#0" expanded="true" />
-                    <element signature="e#10478#10479#0" expanded="true" />
-                    <element signature="e#10505#10506#0" expanded="true" />
-                    <element signature="e#10608#10609#0" expanded="true" />
-                    <element signature="e#10635#10636#0" expanded="true" />
-                    <element signature="e#10724#10725#0" expanded="true" />
-                    <element signature="e#10751#10752#0" expanded="true" />
-                    <element signature="e#10844#10845#0" expanded="true" />
-                    <element signature="e#10871#10872#0" expanded="true" />
-                    <element signature="e#10948#10949#0" expanded="true" />
-                    <element signature="e#10975#10976#0" expanded="true" />
-                    <element signature="e#11055#11056#0" expanded="true" />
-                    <element signature="e#11082#11083#0" expanded="true" />
-                    <element signature="e#11131#11132#0" expanded="true" />
-                    <element signature="e#11158#11159#0" expanded="true" />
-                    <element signature="e#11214#11215#0" expanded="true" />
-                    <element signature="e#11241#11242#0" expanded="true" />
-                    <element signature="e#11306#11307#0" expanded="true" />
-                    <element signature="e#11333#11334#0" expanded="true" />
-                    <element signature="e#11402#11403#0" expanded="true" />
-                    <element signature="e#11429#11430#0" expanded="true" />
-                    <element signature="e#11514#11515#0" expanded="true" />
-                    <element signature="e#11541#11542#0" expanded="true" />
-                    <element signature="e#12476#12477#0" expanded="true" />
+                    <element signature="e#12835#12836#0" expanded="true" />
+                    <element signature="e#12933#12934#0" expanded="true" />
+                    <element signature="e#13036#13037#0" expanded="true" />
+                    <element signature="e#11372#11373#0" expanded="true" />
+                    <element signature="e#11399#11400#0" expanded="true" />
+                    <element signature="e#11503#11504#0" expanded="true" />
+                    <element signature="e#11530#11531#0" expanded="true" />
+                    <element signature="e#11628#11629#0" expanded="true" />
+                    <element signature="e#11655#11656#0" expanded="true" />
+                    <element signature="e#11758#11759#0" expanded="true" />
+                    <element signature="e#11785#11786#0" expanded="true" />
+                    <element signature="e#11874#11875#0" expanded="true" />
+                    <element signature="e#11901#11902#0" expanded="true" />
+                    <element signature="e#11994#11995#0" expanded="true" />
+                    <element signature="e#12021#12022#0" expanded="true" />
+                    <element signature="e#12098#12099#0" expanded="true" />
+                    <element signature="e#12125#12126#0" expanded="true" />
+                    <element signature="e#12205#12206#0" expanded="true" />
+                    <element signature="e#12232#12233#0" expanded="true" />
+                    <element signature="e#12281#12282#0" expanded="true" />
+                    <element signature="e#12308#12309#0" expanded="true" />
+                    <element signature="e#12364#12365#0" expanded="true" />
+                    <element signature="e#12391#12392#0" expanded="true" />
+                    <element signature="e#12456#12457#0" expanded="true" />
+                    <element signature="e#12483#12484#0" expanded="true" />
+                    <element signature="e#12552#12553#0" expanded="true" />
+                    <element signature="e#12579#12580#0" expanded="true" />
+                    <element signature="e#12664#12665#0" expanded="true" />
+                    <element signature="e#12691#12692#0" expanded="true" />
+                    <element signature="e#14547#14548#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/business/Mimouna.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="489">
+                  <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
+                  <folding>
+                    <element signature="e#118#119#0" expanded="true" />
+                    <element signature="e#217#218#0" expanded="true" />
+                    <element signature="e#711#712#0" expanded="true" />
+                    <element signature="e#736#737#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -87,20 +99,20 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="329">
-                  <caret line="312" selection-start-line="312" selection-end-line="318" selection-end-column="28" />
+                <state relative-caret-position="431">
+                  <caret line="393" column="14" selection-start-line="393" selection-start-column="14" selection-end-line="393" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Example.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="307">
-                  <caret line="228" column="70" selection-start-line="228" selection-start-column="70" selection-end-line="228" selection-end-column="70" />
+                <state relative-caret-position="222">
+                  <caret line="187" column="9" lean-forward="true" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -121,8 +133,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getMostPopularPlaylist</find>
-      <find>getPlaylistTotalPlayCount</find>
       <find>asc</find>
       <find>updateuser</find>
       <find>getMimounalistFollowersCount</find>
@@ -149,8 +159,10 @@
       <find>getuser</find>
       <find>failure</find>
       <find>create</find>
-      <find>resultset</find>
       <find>ERROR</find>
+      <find>resultset</find>
+      <find>get</find>
+      <find>getUs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -464,7 +476,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.28667414" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.21164614" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.43337065" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -490,18 +502,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -625,17 +625,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="312" selection-start-line="312" selection-end-line="318" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Example.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="228" column="70" selection-start-line="228" selection-start-column="70" selection-end-line="228" selection-end-column="70" />
+        <state relative-caret-position="222">
+          <caret line="187" column="9" lean-forward="true" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -644,54 +637,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/business/Mimouna.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="489">
+          <caret line="87" column="18" selection-start-line="87" selection-start-column="18" selection-end-line="87" selection-end-column="18" />
           <folding>
             <element signature="e#118#119#0" expanded="true" />
             <element signature="e#217#218#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
             <element signature="e#736#737#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="393" column="14" selection-start-line="393" selection-start-column="14" selection-end-line="393" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        <state relative-caret-position="292">
+          <caret line="333" column="45" selection-start-line="333" selection-start-column="45" selection-end-line="333" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#10573#10574#0" expanded="true" />
-            <element signature="e#10664#10665#0" expanded="true" />
-            <element signature="e#10764#10765#0" expanded="true" />
-            <element signature="e#10862#10863#0" expanded="true" />
-            <element signature="e#10965#10966#0" expanded="true" />
-            <element signature="e#10222#10223#0" expanded="true" />
-            <element signature="e#10249#10250#0" expanded="true" />
-            <element signature="e#10353#10354#0" expanded="true" />
-            <element signature="e#10380#10381#0" expanded="true" />
-            <element signature="e#10478#10479#0" expanded="true" />
-            <element signature="e#10505#10506#0" expanded="true" />
-            <element signature="e#10608#10609#0" expanded="true" />
-            <element signature="e#10635#10636#0" expanded="true" />
-            <element signature="e#10724#10725#0" expanded="true" />
-            <element signature="e#10751#10752#0" expanded="true" />
-            <element signature="e#10844#10845#0" expanded="true" />
-            <element signature="e#10871#10872#0" expanded="true" />
-            <element signature="e#10948#10949#0" expanded="true" />
-            <element signature="e#10975#10976#0" expanded="true" />
-            <element signature="e#11055#11056#0" expanded="true" />
-            <element signature="e#11082#11083#0" expanded="true" />
-            <element signature="e#11131#11132#0" expanded="true" />
-            <element signature="e#11158#11159#0" expanded="true" />
-            <element signature="e#11214#11215#0" expanded="true" />
-            <element signature="e#11241#11242#0" expanded="true" />
-            <element signature="e#11306#11307#0" expanded="true" />
-            <element signature="e#11333#11334#0" expanded="true" />
-            <element signature="e#11402#11403#0" expanded="true" />
-            <element signature="e#11429#11430#0" expanded="true" />
-            <element signature="e#11514#11515#0" expanded="true" />
-            <element signature="e#11541#11542#0" expanded="true" />
-            <element signature="e#12476#12477#0" expanded="true" />
+            <element signature="e#12835#12836#0" expanded="true" />
+            <element signature="e#12933#12934#0" expanded="true" />
+            <element signature="e#13036#13037#0" expanded="true" />
+            <element signature="e#11372#11373#0" expanded="true" />
+            <element signature="e#11399#11400#0" expanded="true" />
+            <element signature="e#11503#11504#0" expanded="true" />
+            <element signature="e#11530#11531#0" expanded="true" />
+            <element signature="e#11628#11629#0" expanded="true" />
+            <element signature="e#11655#11656#0" expanded="true" />
+            <element signature="e#11758#11759#0" expanded="true" />
+            <element signature="e#11785#11786#0" expanded="true" />
+            <element signature="e#11874#11875#0" expanded="true" />
+            <element signature="e#11901#11902#0" expanded="true" />
+            <element signature="e#11994#11995#0" expanded="true" />
+            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#12098#12099#0" expanded="true" />
+            <element signature="e#12125#12126#0" expanded="true" />
+            <element signature="e#12205#12206#0" expanded="true" />
+            <element signature="e#12232#12233#0" expanded="true" />
+            <element signature="e#12281#12282#0" expanded="true" />
+            <element signature="e#12308#12309#0" expanded="true" />
+            <element signature="e#12364#12365#0" expanded="true" />
+            <element signature="e#12391#12392#0" expanded="true" />
+            <element signature="e#12456#12457#0" expanded="true" />
+            <element signature="e#12483#12484#0" expanded="true" />
+            <element signature="e#12552#12553#0" expanded="true" />
+            <element signature="e#12579#12580#0" expanded="true" />
+            <element signature="e#12664#12665#0" expanded="true" />
+            <element signature="e#12691#12692#0" expanded="true" />
+            <element signature="e#14547#14548#0" expanded="true" />
           </folding>
         </state>
       </provider>

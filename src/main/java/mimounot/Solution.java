@@ -16,16 +16,17 @@ import java.util.ArrayList;
 public class Solution {
 
     public static void main(String[] args) {
-        createTables();
-        Mimouna new_mimouna = Mimouna.badMimouna();
-        new_mimouna.setCity("haifa");
-        new_mimouna.setFamilyName("peretz");
-        new_mimouna.setGuestCount(0);
-        new_mimouna.setPoliticianComing(false);
-        new_mimouna.setId(1);
-        new_mimouna.setUserName("nir");
-        addMimouna(new_mimouna);
-        Example.selectFromTable();
+//        createTables();
+//        Mimouna new_mimouna = Mimouna.badMimouna();
+//        new_mimouna.setCity("haifa");
+//        new_mimouna.setFamilyName("peretz");
+//        new_mimouna.setGuestCount(0);
+//        new_mimouna.setPoliticianComing(false);
+//        new_mimouna.setId(1);
+//        new_mimouna.setUserName("nir");
+//        addMimouna(new_mimouna);
+        Mimouna nir_mimouna = getMimouna(1);
+        System.out.println(deleteMimouna(nir_mimouna));
         //dropTables();
         //clearTables();
     }
@@ -286,11 +287,66 @@ public class Solution {
     }
 
     public static Mimouna getMimouna(Integer mimounaId) {
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        Mimouna mimouna=new Mimouna();
+        if(mimounaId==null) { return Mimouna.badMimouna(); }
+        try {
+            pstmt = connection.prepareStatement("SELECT * FROM Mimouna WHERE mimouna_id= ?");
+            pstmt.setInt(1, mimounaId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0)
+            {
+                results.close();
+                return Mimouna.badMimouna();
+            }
+            mimouna.setId(results.getInt(1));
+            mimouna.setUserName(results.getString(2));
+            mimouna.setFamilyName(results.getString(3));
+            mimouna.setCity(results.getString(4));
+            mimouna.setGuestCount(results.getInt(5));
+            mimouna.setPoliticianComing(results.getBoolean(6));
+            results.close();
+        } catch (SQLException e) {
+            return Mimouna.badMimouna();
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return Mimouna.badMimouna();
+            }
+        }
+        return mimouna;
     }
 
     public static ReturnValue deleteMimouna(Mimouna mimouna) {
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(!mimounaExist(mimouna.getId())) return NOT_EXISTS;
+            pstmt = connection.prepareStatement("DELETE FROM Mimouna WHERE mimouna_id= ? ");
+            pstmt.setInt(1, mimouna.getId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
 
     public static ReturnValue addMimounalist(MimounaList mimounaList) {
