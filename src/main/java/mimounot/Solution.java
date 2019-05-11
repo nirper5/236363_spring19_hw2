@@ -401,7 +401,9 @@ public class Solution {
         }
         finally {
             try {
-                pstmt.close();
+                if(pstmt!=null) {
+                 pstmt.close();
+                }
             } catch (SQLException e) {
                 return ERROR;
             }
