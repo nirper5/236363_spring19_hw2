@@ -4,6 +4,7 @@ import org.junit.Test;
 import mimounot.business.*;
 import static org.junit.Assert.assertEquals;
 import static mimounot.business.ReturnValue.*;
+import static org.junit.Assert.assertNotEquals;
 
 
 public class SimpleTest extends AbstractTest{
@@ -49,95 +50,192 @@ public class SimpleTest extends AbstractTest{
         assertEquals(NOT_EXISTS , ret);
     }
 
-    
+     private ReturnValue res;
      @Test
-    public void GaiTests() {
-        dropTables();
-        createTables();
-        User user=new User();
-        user.setId(2);
-        user.setName("rea");
-        user.setCity("rossh haain");
-        user.setPolitician(true);
-        assertEquals(OK,Solution.addUser(user));
+     public void testGetMimounaListFollowersCount() {
+         dropTables();
+         createTables();
+         User u1 = new User();
+         u1.setId(236363);
+         u1.setName("Benny");
+         u1.setCity("Haifa");
+         u1.setPolitician(false);
 
-         User bibi=new User();
-         bibi.setId(3);
-         bibi.setName("bibi");
-         bibi.setCity("jerusalem");
-         bibi.setPolitician(true);
-         assertEquals(OK,Solution.addUser(bibi));
+         Solution.addUser(u1);
 
-         User hatzel=new User();
-         hatzel.setId(4);
-         hatzel.setName("hatzel");
-         hatzel.setCity("haifa");
-         hatzel.setPolitician(false);
-         assertEquals(OK,Solution.addUser(hatzel));
+         User u2 = new User();
+         u2.setId(234123);
+         u2.setName("Leonid");
+         u2.setCity("Tel Aviv");
+         u2.setPolitician(true);
 
-        Mimouna mimouna=new Mimouna();
-        mimouna.setId(2);
-        mimouna.setUserName("gai");
-        mimouna.setFamilyName("lazar");
-        mimouna.setCity("tel aviv");
-        mimouna.setGuestCount(0);
-        mimouna.setPoliticianComing(false);
-        assertEquals(OK, Solution.addMimouna(mimouna));
+         Solution.addUser(u2);
 
-         assertEquals(OK,Solution.confirmAttendancePoliticianToMimouna(2,3));
-         assertEquals(BAD_PARAMS,Solution.confirmAttendancePoliticianToMimouna(2,4));
+         Mimouna m1 = new Mimouna();
+         m1.setId(236319);
+         m1.setUserName("Yossi");
+         m1.setFamilyName("Gil");
+         m1.setCity("Jerusalem");
 
-        MimounaList mimounaList=new MimounaList();
-        mimounaList.setId(4);
-        mimounaList.setCity("tel aviv");
-        assertEquals(OK, Solution.addMimounalist(mimounaList));
+         Solution.addMimouna(m1);
 
-//        assertEquals(OK,Solution.addMimounaToMimounalist(2,4));
-//        assertEquals(ALREADY_EXISTS,Solution.addMimounaToMimounalist(2,4));
-//        assertEquals(BAD_PARAMS,Solution.addMimounaToMimounalist(3,4));
-//        assertEquals(BAD_PARAMS,Solution.addMimounaToMimounalist(2,3));
-//        mimouna.setId(5);
-//        mimouna.setCity("rosh haain");
-//        assertEquals(OK, Solution.addMimouna(mimouna));
-//        assertEquals(BAD_PARAMS,Solution.addMimounaToMimounalist(5,4));
-//
-//        assertEquals(OK,Solution.deleteMimounalist(mimounaList));
-//        assertEquals(BAD_PARAMS,Solution.addMimounaToMimounalist(2,4));
-//        assertEquals( MimounaList.badMimounalist(), Solution.getMimounalist(4));
-//
-//        Mimouna mimouna2=new Mimouna();
-//        mimouna2.setId(6);
-//        mimouna2.setUserName("gai");
-//        mimouna2.setFamilyName("lazar");
-//        mimouna2.setCity("tel aviv");
-//        mimouna2.setGuestCount(0);
-//        mimouna2.setPoliticianComing(false);
-//        assertEquals(OK, Solution.addMimouna(mimouna2));
-//        assertEquals(OK,Solution.addMimounalist(mimounaList));
-//        assertEquals(OK,Solution.addMimounaToMimounalist(6,4));
-//        assertEquals(NOT_EXISTS,Solution.removeMimounaFromMimounalist(16,4));
-//        assertEquals(NOT_EXISTS,Solution.removeMimounaFromMimounalist(6,14));
-//        assertEquals(OK,Solution.removeMimounaFromMimounalist(6,4));
-//        assertEquals(NOT_EXISTS,Solution.removeMimounaFromMimounalist(6,4));
-//
-//        assertEquals( mimouna2.toString(), Solution.getMimouna(6).toString());
-//
-//        //follow
-//        assertEquals(OK,Solution.followMimounalist(2,4));
-//        assertEquals(NOT_EXISTS,Solution.followMimounalist(11,4));
-//        assertEquals(NOT_EXISTS,Solution.followMimounalist(2,14));
-//        assertEquals(ALREADY_EXISTS,Solution.followMimounalist(2,4));
-//        assertEquals(ALREADY_EXISTS,Solution.followMimounalist(2,4));
-//
-//        assertEquals(NOT_EXISTS,Solution.stopFollowMimounalist(11,4));
-//        assertEquals(NOT_EXISTS,Solution.stopFollowMimounalist(2,14));
-//        assertEquals(OK ,Solution.stopFollowMimounalist(2,4));
-//        assertEquals(NOT_EXISTS ,Solution.stopFollowMimounalist(2,4));
-//        assertEquals(NOT_EXISTS ,Solution.stopFollowMimounalist(2,4));
+         Mimouna m2 = new Mimouna();
+         m2.setId(234218);
+         m2.setUserName("Tamer");
+         m2.setFamilyName("Salman");
+         m2.setCity("Naharia");
+
+         Solution.addMimouna(m2);
+
+         Mimouna m3 = new Mimouna();
+         m3.setId(236363);
+         m3.setUserName("Benny");
+         m3.setFamilyName("Kimelfeld");
+         m3.setCity("Naharia");
+
+         Solution.addMimouna(m3);
+
+         Mimouna m4 = new Mimouna();
+         m4.setId(9999999);
+         m4.setUserName("Benny");
+         m4.setFamilyName("Kimelfeld2");
+         m4.setCity("Naharia");
+
+         Solution.addMimouna(m4);
+
+         Mimouna m5 = new Mimouna();
+         m5.setId(88888);
+         m5.setUserName("Benny");
+         m5.setFamilyName("Kimelfeld");
+         m5.setCity("Naharia");
+
+         Solution.addMimouna(m5);
+
+         MimounaList ml1  = new MimounaList();
+         ml1.setId(111);
+         ml1.setCity("Naharia");
+
+         Solution.addMimounalist(ml1);
+
+         MimounaList ml2  = new MimounaList();
+         ml2.setId(112);
+         ml2.setCity("Naharia");
+
+         Solution.addMimounalist(ml2);
+
+         MimounaList ml3  = new MimounaList();
+         ml3.setId(113);
+         ml3.setCity("Naharia");
+
+         Solution.addMimounalist(ml3);
+         Integer res_i = Solution.getMimounalistFollowersCount(500);
+         assertEquals(0, res_i.intValue());
+
+         res_i = Solution.getMimounalistFollowersCount(236363);
+         assertEquals(0, res_i.intValue());
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(0, res_i.intValue());
+
+         res = Solution.followMimounalist(234211, 111);
+         assertEquals(NOT_EXISTS, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(0, res_i.intValue());
+
+         res = Solution.followMimounalist(234123, 111);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.followMimounalist(234123, 111);
+         assertEquals(ALREADY_EXISTS, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(1, res_i.intValue());
 
 
+         res = Solution.followMimounalist(236363, 111);
+         assertEquals(OK, res);
 
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(2, res_i.intValue());
 
-    }
+         res = Solution.stopFollowMimounalist(236363, 111);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.stopFollowMimounalist(236363, 111);
+         assertEquals(NOT_EXISTS, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.followMimounalist(236363, 111);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(2, res_i.intValue());
+
+         // test cascade
+         User res_u = Solution.getUserProfile(234123);
+         assertNotEquals(User.badUser(), res_u);
+         res = Solution.deleteUser(res_u);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.addUser(res_u);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.followMimounalist(236363, 112);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(112);
+         assertEquals(1, res_i.intValue());
+
+         MimounaList res_ml = Solution.getMimounalist(111);
+         assertNotEquals(MimounaList.badMimounalist(), res_ml);
+         res = Solution.deleteMimounalist(res_ml);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(0, res_i.intValue());
+
+         res_i = Solution.getMimounalistFollowersCount(112);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.addMimounalist(res_ml);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(0, res_i.intValue());
+
+         res_i = Solution.getMimounalistFollowersCount(112);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.followMimounalist(234123, 111);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(1, res_i.intValue());
+
+         res = Solution.followMimounalist(236363, 111);
+         assertEquals(OK, res);
+
+         res_i = Solution.getMimounalistFollowersCount(111);
+         assertEquals(2, res_i.intValue());
+
+         res_i = Solution.getMimounalistFollowersCount(112);
+         assertEquals(1, res_i.intValue());
+     }
+
 }
 

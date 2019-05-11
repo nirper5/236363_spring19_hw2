@@ -4,6 +4,7 @@
     <list default="true" id="2979a2d5-8cae-4b62-a8c5-f90cab93056a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/mimounot/SimpleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/mimounot/SimpleTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,48 +33,31 @@
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6888567">
+    <splitter split-orientation="horizontal" split-proportion="0.6499293">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-7717">
-                  <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+                <state relative-caret-position="489">
+                  <caret line="883" selection-start-line="883" selection-end-line="883" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#16922#16923#0" expanded="true" />
-                    <element signature="e#17020#17021#0" expanded="true" />
-                    <element signature="e#17123#17124#0" expanded="true" />
-                    <element signature="e#11503#11504#0" expanded="true" />
-                    <element signature="e#11530#11531#0" expanded="true" />
-                    <element signature="e#11628#11629#0" expanded="true" />
-                    <element signature="e#11655#11656#0" expanded="true" />
-                    <element signature="e#11758#11759#0" expanded="true" />
-                    <element signature="e#11785#11786#0" expanded="true" />
-                    <element signature="e#11874#11875#0" expanded="true" />
-                    <element signature="e#11901#11902#0" expanded="true" />
-                    <element signature="e#11994#11995#0" expanded="true" />
-                    <element signature="e#12021#12022#0" expanded="true" />
-                    <element signature="e#12098#12099#0" expanded="true" />
-                    <element signature="e#12125#12126#0" expanded="true" />
-                    <element signature="e#12205#12206#0" expanded="true" />
-                    <element signature="e#12232#12233#0" expanded="true" />
-                    <element signature="e#12281#12282#0" expanded="true" />
-                    <element signature="e#12308#12309#0" expanded="true" />
-                    <element signature="e#12364#12365#0" expanded="true" />
-                    <element signature="e#12391#12392#0" expanded="true" />
-                    <element signature="e#12456#12457#0" expanded="true" />
-                    <element signature="e#12483#12484#0" expanded="true" />
-                    <element signature="e#12552#12553#0" expanded="true" />
-                    <element signature="e#12579#12580#0" expanded="true" />
-                    <element signature="e#12664#12665#0" expanded="true" />
-                    <element signature="e#12691#12692#0" expanded="true" />
-                    <element signature="e#19745#19746#0" expanded="true" />
+                    <element signature="e#29503#29504#0" expanded="true" />
+                    <element signature="e#29530#29531#0" expanded="true" />
+                    <element signature="e#29586#29587#0" expanded="true" />
+                    <element signature="e#29613#29614#0" expanded="true" />
+                    <element signature="e#29678#29679#0" expanded="true" />
+                    <element signature="e#29705#29706#0" expanded="true" />
+                    <element signature="e#29774#29775#0" expanded="true" />
+                    <element signature="e#29801#29802#0" expanded="true" />
+                    <element signature="e#29886#29887#0" expanded="true" />
+                    <element signature="e#29913#29914#0" expanded="true" />
+                    <element signature="e#29997#29998#0" expanded="true" />
+                    <element signature="e#30024#30025#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -82,7 +66,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/business/Mimouna.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="152">
+                <state relative-caret-position="425">
                   <caret line="33" selection-start-line="33" selection-end-line="33" />
                   <folding>
                     <element signature="e#118#119#0" expanded="true" />
@@ -96,24 +80,77 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Example.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="328">
-                  <caret line="888" column="25" lean-forward="true" selection-start-line="888" selection-start-column="25" selection-end-line="888" selection-end-column="25" />
+                <state relative-caret-position="204">
+                  <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="42" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/SimpleTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="431">
+                  <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#337#338#0" expanded="true" />
+                    <element signature="e#365#366#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Example.java">
+            <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="222">
-                  <caret line="187" column="9" lean-forward="true" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
+                <state relative-caret-position="239">
+                  <caret line="333" selection-start-line="333" selection-end-line="333" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/BasicAPITests.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/AbstractTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="340">
+                  <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#249#250#0" expanded="true" />
+                    <element signature="e#288#289#0" expanded="true" />
+                    <element signature="e#347#348#0" expanded="true" />
+                    <element signature="e#384#385#0" expanded="true" />
+                    <element signature="e#433#434#0" expanded="true" />
+                    <element signature="e#471#472#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$USER_HOME$/Downloads/dataBase/hw/hw2/refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-545">
+                  <caret line="734" column="33" lean-forward="true" selection-start-line="734" selection-start-column="33" selection-end-line="734" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
@@ -131,8 +168,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>asc</find>
-      <find>updateuser</find>
       <find>getMimounalistFollowersCount</find>
       <find>attend</find>
       <find>ispolitician</find>
@@ -161,6 +196,8 @@
       <find>resultset</find>
       <find>get</find>
       <find>getUs</find>
+      <find>getmimounali</find>
+      <find>addsongto</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,6 +223,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/mimounot/Example.java" />
         <option value="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" />
+        <option value="$PROJECT_DIR$/src/test/java/mimounot/SimpleTest.java" />
       </list>
     </option>
   </component>
@@ -239,6 +277,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,12 +319,31 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="236363_spring_18_hw2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="236363_spring19_hw2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="236363_spring_18_hw2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="236363_spring19_hw2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="236363_spring_18_hw2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="236363_spring19_hw2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mimounot" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -313,7 +372,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Solution">
+  <component name="RunManager" selected="JUnit.SimpleTest">
     <configuration name="Example" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mimounot.Example" />
       <module name="236363_winter_18-19_hw2" />
@@ -336,21 +395,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BasicAPITests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="236363_spring19_hw2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="mimounot.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="mimounot" />
-      <option name="MAIN_CLASS_NAME" value="mimounot.BasicAPITests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -386,20 +430,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SimpleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="236363_spring19_hw2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mimounot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mimounot" />
+      <option name="MAIN_CLASS_NAME" value="mimounot.SimpleTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.OurTests" />
-      <item itemvalue="JUnit.BasicAPITests" />
-      <item itemvalue="JUnit.BasicAPITests.Test3" />
       <item itemvalue="Application.Example" />
       <item itemvalue="Application.Solution" />
+      <item itemvalue="JUnit.OurTests" />
+      <item itemvalue="JUnit.BasicAPITests.Test3" />
+      <item itemvalue="JUnit.SimpleTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SimpleTest" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Example" />
         <item itemvalue="JUnit.BasicAPITests.Test3" />
         <item itemvalue="JUnit.OurTests" />
-        <item itemvalue="JUnit.BasicAPITests" />
       </list>
     </recent_temporary>
   </component>
@@ -427,24 +486,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BasicAPITests - 2019.04.20 at 18h 27m 30s.xml">
-      <configuration name="BasicAPITests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BasicAPITests_attendMimouna - 2019.04.20 at 18h 28m 17s.xml">
-      <configuration name="BasicAPITests.attendMimouna" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BasicAPITests - 2019.04.20 at 18h 28m 24s.xml">
-      <configuration name="BasicAPITests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="OurTests - 2019.04.20 at 18h 33m 35s.xml">
-      <configuration name="OurTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BasicAPITests_Test3 - 2019.05.02 at 21h 59m 59s.xml">
-      <configuration name="BasicAPITests.Test3" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BasicAPITests_Test3 - 2019.05.02 at 22h 00m 36s.xml">
-      <configuration name="BasicAPITests.Test3" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BasicAPITests_Test3 - 2019.05.02 at 22h 00m 54s.xml">
       <configuration name="BasicAPITests.Test3" configurationId="JUnit" />
     </history-entry>
@@ -457,6 +498,24 @@
     <history-entry file="BasicAPITests_Test3 - 2019.05.02 at 22h 02m 23s.xml">
       <configuration name="BasicAPITests.Test3" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="SimpleTest - 2019.05.11 at 19h 29m 25s.xml">
+      <configuration name="SimpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleTest - 2019.05.11 at 19h 29m 49s.xml">
+      <configuration name="SimpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleTest - 2019.05.11 at 19h 37m 01s.xml">
+      <configuration name="SimpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleTest - 2019.05.11 at 19h 37m 40s.xml">
+      <configuration name="SimpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleTest - 2019.05.11 at 19h 37m 50s.xml">
+      <configuration name="SimpleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SimpleTest - 2019.05.11 at 19h 40m 26s.xml">
+      <configuration name="SimpleTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="38860000" />
@@ -464,7 +523,7 @@
   <component name="ToolWindowManager">
     <frame x="2728" y="-8" width="1696" height="1026" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15525672" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13569683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -473,8 +532,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.16909294" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.43337065" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.18141097" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4987775" weight="0.29451287" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -482,7 +541,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50159913" side_tool="true" weight="0.3275488" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5012225" side_tool="true" weight="0.43337065" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49733475" weight="0.24593717" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -500,6 +559,38 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -508,6 +599,12 @@
           <line>27</line>
           <properties />
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/mimounot/SimpleTest.java</url>
+          <line>139</line>
+          <properties />
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -523,16 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/SimpleTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="30" selection-end-line="53" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -561,7 +648,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/AbstractTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
+        <state relative-caret-position="340">
           <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -636,24 +723,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Example.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="187" column="9" lean-forward="true" selection-start-line="187" selection-start-column="9" selection-end-line="187" selection-end-column="9" />
+        <state relative-caret-position="204">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="888" column="25" lean-forward="true" selection-start-line="888" selection-start-column="25" selection-end-line="888" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../refference/Assignment2-23908001521456519/204572028-312162233/Solution.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/business/Mimouna.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="425">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#118#119#0" expanded="true" />
@@ -663,40 +744,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Downloads/dataBase/hw/hw2/refference/Assignment2-23908001521456519/204572028-312162233/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-545">
+          <caret line="734" column="33" lean-forward="true" selection-start-line="734" selection-start-column="33" selection-end-line="734" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7717">
-          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        <state relative-caret-position="489">
+          <caret line="883" selection-start-line="883" selection-end-line="883" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#16922#16923#0" expanded="true" />
-            <element signature="e#17020#17021#0" expanded="true" />
-            <element signature="e#17123#17124#0" expanded="true" />
-            <element signature="e#11503#11504#0" expanded="true" />
-            <element signature="e#11530#11531#0" expanded="true" />
-            <element signature="e#11628#11629#0" expanded="true" />
-            <element signature="e#11655#11656#0" expanded="true" />
-            <element signature="e#11758#11759#0" expanded="true" />
-            <element signature="e#11785#11786#0" expanded="true" />
-            <element signature="e#11874#11875#0" expanded="true" />
-            <element signature="e#11901#11902#0" expanded="true" />
-            <element signature="e#11994#11995#0" expanded="true" />
-            <element signature="e#12021#12022#0" expanded="true" />
-            <element signature="e#12098#12099#0" expanded="true" />
-            <element signature="e#12125#12126#0" expanded="true" />
-            <element signature="e#12205#12206#0" expanded="true" />
-            <element signature="e#12232#12233#0" expanded="true" />
-            <element signature="e#12281#12282#0" expanded="true" />
-            <element signature="e#12308#12309#0" expanded="true" />
-            <element signature="e#12364#12365#0" expanded="true" />
-            <element signature="e#12391#12392#0" expanded="true" />
-            <element signature="e#12456#12457#0" expanded="true" />
-            <element signature="e#12483#12484#0" expanded="true" />
-            <element signature="e#12552#12553#0" expanded="true" />
-            <element signature="e#12579#12580#0" expanded="true" />
-            <element signature="e#12664#12665#0" expanded="true" />
-            <element signature="e#12691#12692#0" expanded="true" />
-            <element signature="e#19745#19746#0" expanded="true" />
+            <element signature="e#29503#29504#0" expanded="true" />
+            <element signature="e#29530#29531#0" expanded="true" />
+            <element signature="e#29586#29587#0" expanded="true" />
+            <element signature="e#29613#29614#0" expanded="true" />
+            <element signature="e#29678#29679#0" expanded="true" />
+            <element signature="e#29705#29706#0" expanded="true" />
+            <element signature="e#29774#29775#0" expanded="true" />
+            <element signature="e#29801#29802#0" expanded="true" />
+            <element signature="e#29886#29887#0" expanded="true" />
+            <element signature="e#29913#29914#0" expanded="true" />
+            <element signature="e#29997#29998#0" expanded="true" />
+            <element signature="e#30024#30025#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/SimpleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
           </folding>
         </state>
       </provider>

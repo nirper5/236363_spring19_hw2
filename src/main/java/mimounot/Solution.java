@@ -862,7 +862,31 @@ public class Solution {
 
 
     public static Integer getMimounalistFollowersCount(Integer mimounalistId){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        int totalFollowers=0;
+        if(mimounalistId==null) { return 0; }
+        if(mimounalistId<=0) { return 0; }
+        try {
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM FollowAfter WHERE mimouna_list_id= ?");
+            pstmt.setInt(1, mimounalistId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            totalFollowers=results.getInt(1);
+        } catch (SQLException e) {
+            return 0;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return 0;
+            }
+        }
+        return totalFollowers;
     }
 
     public static String getMostKnownMimouna(){
