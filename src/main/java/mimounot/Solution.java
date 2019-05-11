@@ -238,15 +238,141 @@ public class Solution {
         }
     }
 
-    public static ReturnValue addUser(User user) { return null;}
+      private static boolean userNotExist(Integer userId) throws SQLException{
+        if(userId==null) return true;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt=null;
+        try {
+            pstmt = connection.prepareStatement("SELECT COUNT(user_id) FROM Users WHERE user_id= ?");
+            pstmt.setInt(1, userId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if (results.getInt(1) == 0) {
+                results.close();
+                return true;
+            }
+            results.close();
+        } catch (SQLException e) {
+            throw e;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                throw e;
+            }
+        }
+        return false;
+
+    }
+
+    private static boolean CheckIfUserExist(Integer userId) throws SQLException{
+        try{
+            if(!userNotExist(userId)) { return true;}
+            return false;
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public static ReturnValue addUser(User user) {
+        Connection connection = DBConnector.getConnection();
+        if( user.getId()<=0 || user.getName()==null || user.getCity()==null )
+        { return BAD_PARAMS; }
+        PreparedStatement pstmt = null;
+        try {
+            if(CheckIfUserExist(user.getId())) { return ALREADY_EXISTS ;}
+
+            pstmt = connection.prepareStatement("INSERT INTO Users" +
+                    " VALUES (?, ?, ?, ?)");
+            pstmt.setInt(1,user.getId());
+            pstmt.setString(2, user.getName());
+            pstmt.setString(3,user.getCity());
+            pstmt.setBoolean(4,user.getPolitician());
+            pstmt.execute();
+
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
+    }
 
     public static User getUserProfile(Integer userId) {
-      return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        User user=new User();
+        if(userId==null) { return User.badUser(); }
+        try {
+            pstmt = connection.prepareStatement("SELECT * FROM Users WHERE user_id= ?");
+            pstmt.setInt(1, userId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0)   //if the value is SQL NULL, the value returned is 0
+            {
+                results.close();
+                return User.badUser();
+            }
+            user.setId(results.getInt(1));
+            user.setName(results.getString(2));
+            user.setCity(results.getString(3));
+            user.setPolitician(results.getBoolean(4));
+            results.close();
+
+        } catch (SQLException e) {
+            return User.badUser();
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+            }
+        }
+        return user;
     }
 
     public static ReturnValue deleteUser(User user) {
-       return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            if(userNotExist(user.getId())) return NOT_EXISTS;
+
+            pstmt = connection.prepareStatement("DELETE FROM Users WHERE user_id= ? ");
+            pstmt.setInt(1, user.getId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            return ERROR;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return ERROR;
+            }
+        }
+        return OK;
     }
+
 
     public static ReturnValue addMimouna(Mimouna mimouna) {
         if( mimouna.getId()<=0 || mimouna.getUserName()==null || mimouna.getFamilyName()==null ||
