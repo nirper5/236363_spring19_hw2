@@ -476,6 +476,35 @@ public class Solution {
         }
         return OK;
     }
+    private static boolean mimounaListExist(Integer list_id) throws SQLException{
+        if(list_id == null) return false;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt=null;
+        try {
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM MimounaList WHERE mimouna_list_id = ?");
+            pstmt.setInt(1, list_id);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if (results.getInt(1) == 0) {
+                results.close();
+                return false;
+            }
+            results.close();
+        } catch (SQLException e) {
+            throw e;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                throw e;
+            }
+        }
+        return true;
+    }
 
       public static ReturnValue addMimounalist(MimounaList mimounaList) {
         Connection connection = DBConnector.getConnection();
