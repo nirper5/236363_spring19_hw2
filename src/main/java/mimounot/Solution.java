@@ -944,11 +944,6 @@ public class Solution {
         PreparedStatement pstmt = null;
         int popular_mimouna_list=0;
         try {
-//            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM MimounaInMimounaList ");
-//            ResultSet results = pstmt.executeQuery();
-//            results.next();
-//            if(results.getInt(1)==0) { return 0; }
-
             pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM mimounainmimounalist ");
             ResultSet results = pstmt.executeQuery();
             results.next();
