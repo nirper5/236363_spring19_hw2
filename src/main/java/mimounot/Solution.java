@@ -1081,10 +1081,54 @@ public class Solution {
     public static ArrayList<Integer> getMimounaListRecommendation (Integer userId){
         return null;
     }
+ public static ArrayList<Integer> getTopPoliticianMimounaList(Integer userId) {
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        ArrayList<Integer> res = new ArrayList<>();
 
-    public static ArrayList<Integer> getTopPoliticianMimounaList(Integer userId) {
-        return null;
+        try {
+            if(userNotExist(userId)) { return  res; }
+
+            pstmt = connection.prepareStatement("SELECT city FROM Users WHERE user_id= ?");
+            pstmt.setInt(1, userId);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            String get_city = results.getString(1);
+
+
+            pstmt = connection.prepareStatement("(SELECT mimouna_list_id " +
+                    "FROM (SELECT ML.mimouna_list_id, SUM(guests_counter) AS ml_count " +
+                    "FROM Mimouna M FULL OUTER JOIN mimounainmimounalist ML ON (M.mimouna_id = ML.mimouna_id) " +
+                    "GROUP BY ML.mimouna_list_id " +
+                    "ORDER BY ml_count DESC, ML.mimouna_list_id ASC) AS TEMP " +
+                    "WHERE mimouna_list_id IN (SELECT mimouna_list_id " +
+                    "FROM Mimouna M FULL OUTER JOIN mimounainmimounalist ML ON (M.mimouna_id = ML.mimouna_id ) WHERE (city=? AND is_politician_coming=?))) " );
+
+            pstmt.setString(1, get_city);
+            pstmt.setBoolean(2, true);
+            results = pstmt.executeQuery();
+
+            for(int i=0; i<10 && results.next(); i++){
+                res.add(results.getInt(1));
+            }
+
+        } catch (SQLException e) {
+            //e.printStackTrace()();
+            return res;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return null;
+            }
+        }
+        return res;
     }
+
 
 }
 
