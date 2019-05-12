@@ -384,124 +384,223 @@ public class AdvancedTest extends AbstractTest {
 //        assertEquals(Arrays.asList(1019, 1018, 1017, 1016, 1015, 1014, 1013, 1012, 1011, 1010), res_arr);
 //    }
 //
-//    @Test
-//    public void testGetCloseUsers() {
-//        ArrayList<Integer> res_arr;
-//
-//        res_arr = Solution.getCloseUsers(-5);
-//        assertEquals(new ArrayList<Integer>(), res_arr);
-//
-//        res_arr = Solution.getCloseUsers(49);
-//        assertEquals(new ArrayList<Integer>(), res_arr);
-//
-//        // in the beginning all users have 0 follows, and 0 is at least 67% of 0.
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(Arrays.asList(2, 3, 4, 5), res_arr);
-//
-//        res_arr = Solution.getCloseUsers(2);
-//        assertEquals(Arrays.asList(1, 3, 4, 5), res_arr);
-//
-//        res_arr = Solution.getCloseUsers(3);
-//        assertEquals(Arrays.asList(1, 2, 4, 5), res_arr);
-//
-//        res_arr = Solution.getCloseUsers(4);
-//        assertEquals(Arrays.asList(1, 2, 3, 5), res_arr);
-//
-//        res_arr = Solution.getCloseUsers(5);
-//        assertEquals(Arrays.asList(1, 2, 3, 4), res_arr);
-//
-//        res = Solution.followMimounalist(1, 1);
-//        assertEquals(OK, res);
-//
-//        // since 0 is not >= of 67% of 1, user 1 has no close users.
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(new ArrayList<Integer>(), res_arr);
-//
-//        res = Solution.followMimounalist(2, 2);
-//        assertEquals(OK, res);
-//
-//        res = Solution.followMimounalist(3, 3);
-//        assertEquals(OK, res);
-//
-//        // users 2 and 3 are following only lists that user 1 does not follow.
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(new ArrayList<Integer>(), res_arr);
-//
-//        res = Solution.followMimounalist(2, 1);
-//        assertEquals(OK, res);
-//
-//        res = Solution.followMimounalist(3, 1);
-//        assertEquals(OK, res);
-//
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(Arrays.asList(2, 3), res_arr);
-//
-//        res = Solution.followMimounalist(1, 2);
-//        assertEquals(OK, res);
-//
-//        /*
-//        user 1 follows 1 and 2
-//        user 2 follows 1 and 2
-//        user 3 follows 1 and 3
-//         */
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(Collections.singletonList(2), res_arr);
-//
-//        res = Solution.followMimounalist(1, 3);
-//        assertEquals(OK, res);
-//
-//                /*
-//        user 1 follows 1 and 2 and 3
-//        user 2 follows 1 and 2
-//        user 3 follows 1 and 3 -> each follow exactly 67% of user1's follows
-//         */
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(Arrays.asList(2, 3), res_arr);
-//
-//        res = Solution.followMimounalist(3, 2);
-//        assertEquals(OK, res);
-//
-//        // they are NOT ordered by closeness or something like that
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(Arrays.asList(2, 3), res_arr);
-//
-//        User res_u = Solution.getUserProfile(2);
-//        assertNotEquals(User.badUser(), res_u);
-//
-//        res = Solution.deleteUser(res_u);
-//        assertEquals(OK, res);
-//
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(Collections.singletonList(3), res_arr);
-//
-//        res = Solution.addUser(res_u);
-//        assertEquals(OK, res);
-//
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(Collections.singletonList(3), res_arr);
-//
-//        MimounaList res_ml = Solution.getMimounalist(1);
-//        assertNotEquals(MimounaList.badMimounalist(), res_ml);
-//
-//        res = Solution.deleteMimounalist(res_ml);
-//        assertEquals(OK, res);
-//
-//        res = Solution.stopFollowMimounalist(3, 2);
-//        assertEquals(OK, res);
-//
-//        /*
-//        user 1 follows 2 and 3
-//        user 3 follows 3
-//         */
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(new ArrayList<Integer>(), res_arr);
-//
-//        res = Solution.addMimounalist(res_ml);
-//        assertEquals(OK, res);
-//
-//        res_arr = Solution.getCloseUsers(1);
-//        assertEquals(new ArrayList<Integer>(), res_arr);
-//    }
+    @Test
+    public void testGetCloseUsers() {
+        dropTables();
+        createTables();
+        User u1 = new User();
+        u1.setId(1);
+        u1.setName("Raymond");
+        u1.setCity("NY");
+        u1.setPolitician(false);
+
+        Solution.addUser(u1);
+
+        User u2 = new User();
+        u2.setId(2);
+        u2.setName("Debra");
+        u2.setCity("NY");
+        u2.setPolitician(false);
+
+        Solution.addUser(u2);
+
+        User u3 = new User();
+        u3.setId(3);
+        u3.setName("Robert");
+        u3.setCity("NY");
+        u3.setPolitician(false);
+
+        Solution.addUser(u3);
+
+        User u4 = new User();
+        u4.setId(4);
+        u4.setName("Marie");
+        u4.setCity("NY");
+        u4.setPolitician(false);
+
+        Solution.addUser(u4);
+
+        User u5 = new User();
+        u5.setId(5);
+        u5.setName("Frank");
+        u5.setCity("NY");
+        u5.setPolitician(true);
+
+        Solution.addUser(u5);
+
+        Mimouna m1 = new Mimouna();
+        m1.setId(1);
+        m1.setUserName("Raymond");
+        m1.setFamilyName("Barone");
+        m1.setCity("NY");
+
+        Solution.addMimouna(m1);
+
+        Mimouna m2 = new Mimouna();
+        m2.setId(2);
+        m2.setUserName("Robert");
+        m2.setFamilyName("Barone");
+        m2.setCity("NY");
+
+        Solution.addMimouna(m2);
+
+        Mimouna m3 = new Mimouna();
+        m3.setId(3);
+        m3.setUserName("Hank");
+        m3.setFamilyName("MacDougall");
+        m3.setCity("NY");
+
+        Solution.addMimouna(m3);
+
+        Mimouna m4 = new Mimouna();
+        m4.setId(4);
+        m4.setUserName("Lois");
+        m4.setFamilyName("Whelan");
+        m4.setCity("NY");
+
+        Solution.addMimouna(m4);
+
+        Mimouna m5 = new Mimouna();
+        m5.setId(5);
+        m5.setUserName("Bernie");
+        m5.setFamilyName("Gruenfelder");
+        m5.setCity("NY");
+
+        Solution.addMimouna(m5);
+
+        MimounaList ml1 = new MimounaList();
+        ml1.setId(1);
+        ml1.setCity("NY");
+
+        Solution.addMimounalist(ml1);
+
+        MimounaList ml2 = new MimounaList();
+        ml2.setId(2);
+        ml2.setCity("NY");
+
+        Solution.addMimounalist(ml2);
+
+        MimounaList ml3 = new MimounaList();
+        ml3.setId(3);
+        ml3.setCity("NY");
+
+        Solution.addMimounalist(ml3);
+        ArrayList<Integer> res_arr;
+
+        res_arr = Solution.getCloseUsers(-5);
+        assertEquals(new ArrayList<Integer>(), res_arr);
+
+        res_arr = Solution.getCloseUsers(49);
+        assertEquals(new ArrayList<Integer>(), res_arr);
+
+        // in the beginning all users have 0 follows, and 0 is at least 67% of 0.
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(Arrays.asList(2, 3, 4, 5), res_arr);
+
+        res_arr = Solution.getCloseUsers(2);
+        assertEquals(Arrays.asList(1, 3, 4, 5), res_arr);
+
+        res_arr = Solution.getCloseUsers(3);
+        assertEquals(Arrays.asList(1, 2, 4, 5), res_arr);
+
+        res_arr = Solution.getCloseUsers(4);
+        assertEquals(Arrays.asList(1, 2, 3, 5), res_arr);
+
+        res_arr = Solution.getCloseUsers(5);
+        assertEquals(Arrays.asList(1, 2, 3, 4), res_arr);
+
+        res = Solution.followMimounalist(1, 1);
+        assertEquals(OK, res);
+
+        // since 0 is not >= of 67% of 1, user 1 has no close users.
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(new ArrayList<Integer>(), res_arr);
+
+        res = Solution.followMimounalist(2, 2);
+        assertEquals(OK, res);
+
+        res = Solution.followMimounalist(3, 3);
+        assertEquals(OK, res);
+
+        // users 2 and 3 are following only lists that user 1 does not follow.
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(new ArrayList<Integer>(), res_arr);
+
+        res = Solution.followMimounalist(2, 1);
+        assertEquals(OK, res);
+
+        res = Solution.followMimounalist(3, 1);
+        assertEquals(OK, res);
+
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(Arrays.asList(2, 3), res_arr);
+
+        res = Solution.followMimounalist(1, 2);
+        assertEquals(OK, res);
+
+        /*
+        user 1 follows 1 and 2
+        user 2 follows 1 and 2
+        user 3 follows 1 and 3
+         */
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(Collections.singletonList(2), res_arr);
+
+        res = Solution.followMimounalist(1, 3);
+        assertEquals(OK, res);
+
+                /*
+        user 1 follows 1 and 2 and 3
+        user 2 follows 1 and 2
+        user 3 follows 1 and 3 -> each follow exactly 67% of user1's follows
+         */
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(new ArrayList<Integer>(), res_arr);
+
+        res = Solution.followMimounalist(3, 2);
+        assertEquals(OK, res);
+
+        // they are NOT ordered by closeness or something like that
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(Arrays.asList(3), res_arr);
+
+        User res_u = Solution.getUserProfile(2);
+        assertNotEquals(User.badUser(), res_u);
+
+        res = Solution.deleteUser(res_u);
+        assertEquals(OK, res);
+
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(Collections.singletonList(3), res_arr);
+
+        res = Solution.addUser(res_u);
+        assertEquals(OK, res);
+
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(Collections.singletonList(3), res_arr);
+
+        MimounaList res_ml = Solution.getMimounalist(1);
+        assertNotEquals(MimounaList.badMimounalist(), res_ml);
+
+        res = Solution.deleteMimounalist(res_ml);
+        assertEquals(OK, res);
+
+        res = Solution.stopFollowMimounalist(3, 2);
+        assertEquals(OK, res);
+
+        /*
+        user 1 follows 2 and 3
+        user 3 follows 3
+         */
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(new ArrayList<Integer>(), res_arr);
+
+        res = Solution.addMimounalist(res_ml);
+        assertEquals(OK, res);
+
+        res_arr = Solution.getCloseUsers(1);
+        assertEquals(new ArrayList<Integer>(), res_arr);
+    }
 //
 //
 //    @Test

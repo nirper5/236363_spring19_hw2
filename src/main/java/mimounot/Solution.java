@@ -1020,7 +1020,62 @@ public class Solution {
     }
 
     public static ArrayList<Integer> getCloseUsers(Integer userId){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        ArrayList<Integer> res = new ArrayList<>();
+        try {
+            if(userId<=0 || userNotExist(userId)){
+                return res;
+            }
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM FollowAfter");
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0){
+                pstmt = connection.prepareStatement("SELECT user_id FROM Users WHERE user_id != ? ORDER BY user_id ASC ");
+                pstmt.setInt(1, userId);
+                results = pstmt.executeQuery();
+                for(int i=0; i<10 && results.next(); i++){
+                    res.add(results.getInt(1));
+                }
+                return res;
+            }
+
+            pstmt = connection.prepareStatement("SELECT U.user_id FROM (SELECT user_id, COUNT(mimouna_list_id) AS conuntMl\n" +
+                    " \t\t\t\t\t   FROM FollowAfter WHERE mimouna_list_id IN (SELECT mimouna_list_id\n" +
+                    "                                                         FROM FollowAfter\n" +
+                    "                                                         WHERE user_id = ?)\n" +
+                    "                                   AND user_id != ? \n" +
+                    "                                     GROUP BY user_id) AS U \n" +
+                    "                             WHERE ((U.conuntMl) >= (0.67)*(SELECT COUNT(mimouna_list_id) FROM FollowAfter WHERE user_id = ?))\n" +
+                    "                              AND (U.user_id != ?)\n" +
+                    "                              AND (U.conuntMl !=0)\n" +
+                    "                             ORDER BY U.user_id ASC") ;
+
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, userId);
+            pstmt.setInt(3, userId);
+            pstmt.setInt(4, userId);
+            results = pstmt.executeQuery();
+            for(int i=0; i<10 && results.next(); i++) {
+                res.add(results.getInt(1));
+            }
+            results.close();
+
+        } catch (SQLException e) {
+            return null;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                //e.printStackTrace()();
+                return null;
+            }
+        }
+        return res;
     }
 
     public static ArrayList<Integer> getMimounaListRecommendation (Integer userId){
