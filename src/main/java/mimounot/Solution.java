@@ -889,9 +889,55 @@ public class Solution {
         return totalFollowers;
     }
 
-    public static String getMostKnownMimouna(){
-        return null;
+ public static String getFamilyNameByMimounaID(int mimouna_id) {
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        try {
+            pstmt = connection.prepareStatement("SELECT family_name FROM Mimouna WHERE mimouna_id= ?");
+            pstmt.setInt(1, mimouna_id);
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            return results.getString(1);
+        }
+        catch (SQLException e) {
+            return null;
+        }
     }
+    public static String getMostKnownMimouna(){
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        String mostKnownMimouna=null;
+        try {
+            //no mimounas list
+            pstmt = connection.prepareStatement("SELECT COUNT(*) FROM mimounainmimounalist ");
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0) { return ""; }
+
+            pstmt = connection.prepareStatement("SELECT mimouna_id,COUNT(mimouna_list_id) AS countt FROM mimounainmimounalist GROUP BY mimouna_id " +
+                    "ORDER BY countt DESC,mimouna_id DESC ");
+            results = pstmt.executeQuery();
+            results.next();
+
+            int mimouna_id=results.getInt(1);
+            mostKnownMimouna=getFamilyNameByMimounaID(mimouna_id);
+
+        } catch (SQLException e) {
+            return null;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return null;
+            }
+        }
+        return mostKnownMimouna;
+    }
+
 
     public static Integer getMostPopularMimounalist(){
         Connection connection = DBConnector.getConnection();
