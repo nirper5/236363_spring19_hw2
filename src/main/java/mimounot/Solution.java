@@ -894,7 +894,54 @@ public class Solution {
     }
 
     public static Integer getMostPopularMimounalist(){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        int popular_mimouna_list=0;
+        try {
+//            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM MimounaInMimounaList ");
+//            ResultSet results = pstmt.executeQuery();
+//            results.next();
+//            if(results.getInt(1)==0) { return 0; }
+
+            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM mimounainmimounalist ");
+            ResultSet results = pstmt.executeQuery();
+            results.next();
+            if(results.getInt(1)==0){
+                pstmt = connection.prepareStatement("SELECT mimouna_list_id FROM MimounaList ORDER BY mimouna_list_id DESC ");
+                results = pstmt.executeQuery();
+                results.next();
+                return results.getInt(1);
+            }
+
+            pstmt = connection.prepareStatement("SELECT mimouna_list_id, SUM(guests_counter) AS gstcount " +
+                    "FROM mimounainmimounalist MIML INNER JOIN Mimouna M " +
+                    "ON (MIML.mimouna_id = M.mimouna_id) " +
+                    "GROUP BY mimouna_list_id " +
+                    "ORDER BY gstcount DESC , mimouna_list_id DESC ");
+            results = pstmt.executeQuery();
+            results.next();
+            popular_mimouna_list=results.getInt(1);
+            int sum_zero = results.getInt(2);
+            if(sum_zero == 0){
+                pstmt = connection.prepareStatement("SELECT mimouna_list_id FROM MimounaList ORDER BY mimouna_list_id DESC ");
+                results = pstmt.executeQuery();
+                results.next();
+                popular_mimouna_list=results.getInt(1);
+            }
+        } catch (SQLException e) {
+            return 0;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return 0;
+            }
+        }
+        return popular_mimouna_list;
     }
 
     public static ArrayList<Integer> getMostRatedMimounaList(){

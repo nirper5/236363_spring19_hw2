@@ -9,7 +9,7 @@ import static mimounot.business.ReturnValue.*;
 
 public class BasicAPITests extends AbstractTest {
     @Test
-    public void Test1() {
+    public void songPlayTest() {
 
         ReturnValue res;
         Mimouna m = new Mimouna();
@@ -29,7 +29,7 @@ public class BasicAPITests extends AbstractTest {
     }
 
     @Test
-    public void Test2() {
+    public void followPlaylistTest() {
 
         ReturnValue res;
         MimounaList p = new MimounaList();
@@ -70,8 +70,8 @@ public class BasicAPITests extends AbstractTest {
         assertEquals(OK , res);
     }
     @Test
-    public void Test3() {
-        
+    public void attendMimouna() {
+
         User u1 = new User();
         u1.setId(100);
         u1.setName("Nir");
