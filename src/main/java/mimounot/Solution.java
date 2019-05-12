@@ -944,11 +944,6 @@ public class Solution {
         PreparedStatement pstmt = null;
         int popular_mimouna_list=0;
         try {
-//            pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM MimounaInMimounaList ");
-//            ResultSet results = pstmt.executeQuery();
-//            results.next();
-//            if(results.getInt(1)==0) { return 0; }
-
             pstmt = connection.prepareStatement("SELECT COUNT(mimouna_list_id) FROM mimounainmimounalist ");
             ResultSet results = pstmt.executeQuery();
             results.next();
@@ -991,7 +986,37 @@ public class Solution {
     }
 
     public static ArrayList<Integer> getMostRatedMimounaList(){
-        return null;
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        ArrayList<Integer> res = new ArrayList<>();
+        try {
+            pstmt = connection.prepareStatement("SELECT MIML.mimouna_list_id, (TGML.sum_guests + MIML.num_of_mimouna) AS rating " +
+                    "FROM (SELECT mimouna_list_id, COUNT(mimouna_id) AS num_of_mimouna FROM mimounainmimounalist GROUP BY mimouna_list_id) MIML, " +
+                    "(SELECT mimouna_list_id, SUM(guests_counter) AS sum_guests FROM Mimouna A FULL OUTER JOIN MimounaInMimounaList " +
+                    "B ON (A.mimouna_id = B.mimouna_id) " +
+                    "GROUP BY mimouna_list_id) TGML " +
+                    "WHERE MIML.mimouna_list_id = TGML.mimouna_list_id " +
+                    "ORDER BY rating DESC, MIML.mimouna_list_id ASC"); //DESC
+            ResultSet results = pstmt.executeQuery();
+
+            for(int i=0; i<10 && results.next(); i++){
+                res.add(results.getInt(1));
+            }
+
+        } catch (SQLException e) {
+            return null;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return null;
+            }
+        }
+        return res;
     }
 
     public static ArrayList<Integer> getCloseUsers(Integer userId){
