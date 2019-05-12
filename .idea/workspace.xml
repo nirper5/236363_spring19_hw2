@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2979a2d5-8cae-4b62-a8c5-f90cab93056a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/mimounot/AdvancedTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mimounot/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mimounot/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mimounot/Solution.class" afterDir="false" />
-    </list>
+    <list default="true" id="2979a2d5-8cae-4b62-a8c5-f90cab93056a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +38,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="230">
-                  <caret line="381" selection-start-line="381" selection-end-line="381" />
+                <state relative-caret-position="306">
+                  <caret line="1016" column="13" lean-forward="true" selection-start-line="1016" selection-start-column="13" selection-end-line="1016" selection-end-column="13" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#37357#37358#0" expanded="true" />
@@ -91,7 +86,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/AdvancedTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="478">
+                <state relative-caret-position="3385">
                   <caret line="324" column="30" lean-forward="true" selection-start-line="324" selection-start-column="30" selection-end-line="324" selection-end-column="30" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -436,12 +431,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BasicTest_testGetMostPopularMimounaList - 2019.05.12 at 11h 13m 54s.xml">
-      <configuration name="BasicTest.testGetMostPopularMimounaList" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BasicTest_testGetMostPopularMimounaList - 2019.05.12 at 11h 24m 45s.xml">
-      <configuration name="BasicTest.testGetMostPopularMimounaList" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BasicTest_testGetMostPopularMimounaList - 2019.05.12 at 11h 28m 26s.xml">
       <configuration name="BasicTest.testGetMostPopularMimounaList" configurationId="JUnit" />
     </history-entry>
@@ -466,6 +455,12 @@
     <history-entry file="AdvancedTest_testGetMostRatedMimounaList - 2019.05.12 at 14h 08m 40s.xml">
       <configuration name="AdvancedTest.testGetMostRatedMimounaList" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AdvancedTest_testGetMostRatedMimounaList - 2019.05.12 at 14h 11m 46s.xml">
+      <configuration name="AdvancedTest.testGetMostRatedMimounaList" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AdvancedTest_testGetMostRatedMimounaList - 2019.05.12 at 14h 11m 57s.xml">
+      <configuration name="AdvancedTest.testGetMostRatedMimounaList" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="38860000" />
@@ -483,8 +478,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840087" weight="0.156013" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4987775" visible="true" weight="0.27735645" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49840087" visible="true" weight="0.18093175" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4987775" weight="0.27735645" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -801,24 +796,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/AdvancedTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="381" selection-start-line="381" selection-end-line="381" />
+        <state relative-caret-position="3385">
+          <caret line="324" column="30" lean-forward="true" selection-start-line="324" selection-start-column="30" selection-end-line="324" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#37357#37358#0" expanded="true" />
-            <element signature="e#37384#37385#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/mimounot/AdvancedTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mimounot/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="324" column="30" lean-forward="true" selection-start-line="324" selection-start-column="30" selection-end-line="324" selection-end-column="30" />
+        <state relative-caret-position="306">
+          <caret line="1016" column="13" lean-forward="true" selection-start-line="1016" selection-start-column="13" selection-end-line="1016" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#37357#37358#0" expanded="true" />
+            <element signature="e#37384#37385#0" expanded="true" />
           </folding>
         </state>
       </provider>
