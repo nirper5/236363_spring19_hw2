@@ -1077,11 +1077,53 @@ public class Solution {
         }
         return res;
     }
+//gai changed
+public static ArrayList<Integer> getMimounaListRecommendation(Integer userId) {
+        Connection connection = DBConnector.getConnection();
+        PreparedStatement pstmt = null;
+        ArrayList<Integer> res = new ArrayList<>();
+        try {
+            if(userNotExist(userId)) { return  res; }
 
-    public static ArrayList<Integer> getMimounaListRecommendation (Integer userId){
-        return null;
+            pstmt = connection.prepareStatement("(SELECT mimouna_list_id FROM (SELECT mimouna_list_id, COUNT(SU.user_id) AS count_user\n" +
+                    "FROM (SELECT U.user_id FROM (SELECT user_id, COUNT(mimouna_list_id) AS conuntPl \n" +
+                    "FROM followafter WHERE mimouna_list_id IN (SELECT mimouna_list_id FROM followafter \n" +
+                    "WHERE user_id = ?) AND (user_id != ?) GROUP BY user_id) AS U \n" +
+                    "WHERE U.conuntPl >= (0.67)*(SELECT COUNT(mimouna_list_id) FROM followafter WHERE user_id = ?) \n" +
+                    "AND U.user_id != ? AND U.conuntPl !=0 ORDER BY U.user_id ASC) \n" +
+                    "SU INNER JOIN followafter UF ON (SU.user_id = UF.user_id) \n" +
+                    "WHERE mimouna_list_id NOT IN (SELECT  mimouna_list_id FROM followafter WHERE user_id= ?)\n" +
+                    "GROUP BY mimouna_list_id\n" +
+                    "ORDER BY count_user DESC, mimouna_list_id ASC) AS TEMP ) ");
+
+            pstmt.setInt(1, userId);
+            pstmt.setInt(2, userId);
+            pstmt.setInt(3, userId);
+            pstmt.setInt(4, userId);
+            pstmt.setInt(5, userId);
+            ResultSet results = pstmt.executeQuery();
+            for(int i=0; i<3 && results.next(); i++){
+                res.add(results.getInt(1));
+            }
+
+        } catch (SQLException e) {
+            return null;
+        }
+        finally {
+            try {
+                if(pstmt!=null) {
+                    pstmt.close();
+                }
+                connection.close();
+            } catch (SQLException e) {
+                return null;
+            }
+        }
+        return res;
     }
- public static ArrayList<Integer> getTopPoliticianMimounaList(Integer userId) {
+    
+    //gai changed
+public static ArrayList<Integer> getTopPoliticianMimounaList(Integer userId) {
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         ArrayList<Integer> res = new ArrayList<>();
@@ -1089,12 +1131,14 @@ public class Solution {
         try {
             if(userNotExist(userId)) { return  res; }
 
-            pstmt = connection.prepareStatement("SELECT city FROM Users WHERE user_id= ?");
+            pstmt = connection.prepareStatement("SELECT * FROM Users WHERE user_id= ?");
             pstmt.setInt(1, userId);
             ResultSet results = pstmt.executeQuery();
             results.next();
-            String get_city = results.getString(1);
+            String get_city = results.getString(3);
+            boolean get_if_politician =results.getBoolean(4);
 
+            if(get_if_politician) { return  res; }
 
             pstmt = connection.prepareStatement("(SELECT mimouna_list_id " +
                     "FROM (SELECT ML.mimouna_list_id, SUM(guests_counter) AS ml_count " +
@@ -1128,7 +1172,6 @@ public class Solution {
         }
         return res;
     }
-
 
 }
 
