@@ -15,24 +15,6 @@ import java.util.ArrayList;
 
 public class Solution {
 
-    public static void main(String[] args) {
-        createTables();
-        Mimouna new_mimouna = Mimouna.badMimouna();
-        new_mimouna.setCity("haifa");
-        new_mimouna.setFamilyName("peretz");
-        new_mimouna.setGuestCount(0);
-        new_mimouna.setPoliticianComing(false);
-        new_mimouna.setId(1);
-        new_mimouna.setUserName("nir");
-    //    addMimouna(new_mimouna);
-      //  System.out.println(attendMimouna(new_mimouna.getId(),5));
-        System.out.println(attendMimouna(new_mimouna.getId(),-6));
-//        Mimouna nir_mimouna = getMimouna(1);
-//        System.out.println(deleteMimouna(nir_mimouna));
-//        dropTables();
-        //clearTables();
-    }
-
     private static boolean mimounaExist(Integer mimouna_id) throws SQLException{
         if(mimouna_id==null) return false;
         Connection connection = DBConnector.getConnection();
@@ -158,18 +140,15 @@ public class Solution {
 
         } catch (SQLException e) {
             e.getErrorCode();
-            //e.printStackTrace()();
         }
         finally {
             try {
                 pstmt.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
             }
             try {
                 connection.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
             }
         }
     }
@@ -191,18 +170,15 @@ public class Solution {
             pstmt = connection.prepareStatement("DELETE FROM MimounaList ");
             pstmt.execute();
         } catch (SQLException e) {
-            //e.printStackTrace()();
         }
         finally {
             try {
                 pstmt.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
             }
             try {
                 connection.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
             }
         }
     }
@@ -224,23 +200,20 @@ public class Solution {
             pstmt = connection.prepareStatement("DROP TABLE IF EXISTS MimounaInMimounaList");
             pstmt.execute();
         } catch (SQLException e) {
-            //e.printStackTrace()();
         }
         finally {
             try {
                 pstmt.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
             }
             try {
                 connection.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
             }
         }
     }
 
-      private static boolean userNotExist(Integer userId) throws SQLException{
+    private static boolean userNotExist(Integer userId) throws SQLException{
         if(userId==null) return true;
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt=null;
@@ -343,7 +316,6 @@ public class Solution {
                 }
                 connection.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
             }
         }
         return user;
@@ -378,14 +350,14 @@ public class Solution {
 
     public static ReturnValue addMimouna(Mimouna mimouna) {
         if( mimouna.getId()<=0 || mimouna.getUserName()==null || mimouna.getFamilyName()==null ||
-                mimouna.getCity()==null || mimouna.getGuestCount()!=0 || mimouna.getIsPoliticianComing()==true){
+                mimouna.getCity()==null ){
             return BAD_PARAMS;
         }
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         try {
             if(mimounaExist(mimouna.getId())){
-               return ALREADY_EXISTS;
+                return ALREADY_EXISTS;
             }
             pstmt = connection.prepareStatement("INSERT INTO Mimouna" +
                     " VALUES (?, ?, ?, ?, ?, ?)");
@@ -393,16 +365,16 @@ public class Solution {
             pstmt.setString(2, mimouna.getUserName());
             pstmt.setString(3,mimouna.getFamilyName());
             pstmt.setString(4,mimouna.getCity());
-            pstmt.setInt(5,mimouna.getGuestCount());
-            pstmt.setBoolean(6,mimouna.getIsPoliticianComing());
+            pstmt.setInt(5,0);
+            pstmt.setBoolean(6,false);
             pstmt.execute();
         } catch (SQLException e) {
             return ERROR;
         }
         finally {
             try {
-                if(pstmt!=null) {
-                 pstmt.close();
+                if(pstmt!=null) { //gai change
+                    pstmt.close();
                 }
             } catch (SQLException e) {
                 return ERROR;
@@ -478,6 +450,7 @@ public class Solution {
         }
         return OK;
     }
+
     private static boolean mimounaListExist(Integer list_id) throws SQLException{
         if(list_id == null) return false;
         Connection connection = DBConnector.getConnection();
@@ -507,8 +480,7 @@ public class Solution {
         }
         return true;
     }
-
-      public static ReturnValue addMimounalist(MimounaList mimounaList) {
+    public static ReturnValue addMimounalist(MimounaList mimounaList) {
         Connection connection = DBConnector.getConnection();
         if( mimounaList.getId()<=0 || mimounaList.getCity()==null )
         { return BAD_PARAMS; }
@@ -656,9 +628,10 @@ public class Solution {
             pstmt.setInt(2,mimounaId);
             pstmt.execute();
             pstmt = connection.prepareStatement("UPDATE Mimouna"+
-                                                    " SET is_politician_coming=true"+
-                                                    " WHERE mimouna_id= ?");
-            pstmt.setInt(1, mimounaId);
+                    " SET is_politician_coming=?"+
+                    " WHERE mimouna_id= ?");
+            pstmt.setBoolean(1, true);
+            pstmt.setInt(2, mimounaId);
             pstmt.executeUpdate();
         } catch (SQLException e) {
             return ERROR;
@@ -676,7 +649,7 @@ public class Solution {
         return OK;
     }
 
-   public static ReturnValue addMimounaToMimounalist(Integer mimounaId, Integer mimounalistId){
+    public static ReturnValue addMimounaToMimounalist(Integer mimounaId, Integer mimounalistId){
 
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
@@ -830,7 +803,7 @@ public class Solution {
         return OK;
     }
 
- public static Integer getMimounalistTotalGuests(Integer mimounalistId){
+    public static Integer getMimounalistTotalGuests(Integer mimounalistId){
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         int totalGuests=0;
@@ -889,7 +862,8 @@ public class Solution {
         return totalFollowers;
     }
 
- public static String getFamilyNameByMimounaID(int mimouna_id) {
+
+    public static String getFamilyNameByMimounaID(int mimouna_id) {
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         try {
@@ -938,7 +912,6 @@ public class Solution {
         return mostKnownMimouna;
     }
 
-
     public static Integer getMostPopularMimounalist(){
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
@@ -985,6 +958,7 @@ public class Solution {
         return popular_mimouna_list;
     }
 
+
     public static ArrayList<Integer> getMostRatedMimounaList(){
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
@@ -1019,6 +993,7 @@ public class Solution {
         return res;
     }
 
+
     public static ArrayList<Integer> getCloseUsers(Integer userId){
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
@@ -1031,12 +1006,6 @@ public class Solution {
             ResultSet results = pstmt.executeQuery();
             results.next();
             if(results.getInt(1)==0){
-                pstmt = connection.prepareStatement("SELECT user_id FROM Users WHERE user_id != ? ORDER BY user_id ASC ");
-                pstmt.setInt(1, userId);
-                results = pstmt.executeQuery();
-                for(int i=0; i<10 && results.next(); i++){
-                    res.add(results.getInt(1));
-                }
                 return res;
             }
 
@@ -1071,39 +1040,50 @@ public class Solution {
                 }
                 connection.close();
             } catch (SQLException e) {
-                //e.printStackTrace()();
                 return null;
             }
         }
         return res;
     }
-//gai changed
-public static ArrayList<Integer> getMimounaListRecommendation(Integer userId) {
+
+
+    public static ArrayList<Integer> getMimounaListRecommendation(Integer userId) {
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         ArrayList<Integer> res = new ArrayList<>();
         try {
             if(userNotExist(userId)) { return  res; }
 
-            pstmt = connection.prepareStatement("(SELECT mimouna_list_id FROM (SELECT mimouna_list_id, COUNT(SU.user_id) AS count_user\n" +
-                    "FROM (SELECT U.user_id FROM (SELECT user_id, COUNT(mimouna_list_id) AS conuntPl \n" +
-                    "FROM followafter WHERE mimouna_list_id IN (SELECT mimouna_list_id FROM followafter \n" +
-                    "WHERE user_id = ?) AND (user_id != ?) GROUP BY user_id) AS U \n" +
-                    "WHERE U.conuntPl >= (0.67)*(SELECT COUNT(mimouna_list_id) FROM followafter WHERE user_id = ?) \n" +
-                    "AND U.user_id != ? AND U.conuntPl !=0 ORDER BY U.user_id ASC) \n" +
-                    "SU INNER JOIN followafter UF ON (SU.user_id = UF.user_id) \n" +
-                    "WHERE mimouna_list_id NOT IN (SELECT  mimouna_list_id FROM followafter WHERE user_id= ?)\n" +
-                    "GROUP BY mimouna_list_id\n" +
-                    "ORDER BY count_user DESC, mimouna_list_id ASC) AS TEMP ) ");
-
+            pstmt = connection.prepareStatement("SELECT COUNT(user_id) FROM FollowAfter WHERE user_id= ?");
             pstmt.setInt(1, userId);
-            pstmt.setInt(2, userId);
-            pstmt.setInt(3, userId);
-            pstmt.setInt(4, userId);
-            pstmt.setInt(5, userId);
             ResultSet results = pstmt.executeQuery();
-            for(int i=0; i<3 && results.next(); i++){
-                res.add(results.getInt(1));
+            results.next();
+            if(results.getInt(1)==0){
+                return res;
+
+            }
+            else {
+
+                pstmt = connection.prepareStatement("(SELECT mimouna_list_id FROM (SELECT mimouna_list_id, COUNT(CU.user_id) AS count_user\n" +
+                        "FROM (SELECT U.user_id FROM (SELECT user_id, COUNT(mimouna_list_id) AS conunt_ML \n" +
+                        "FROM followafter WHERE mimouna_list_id IN (SELECT mimouna_list_id FROM followafter \n" +
+                        "WHERE user_id = ?) AND (user_id != ?) GROUP BY user_id) AS U \n" +
+                        "WHERE U.conunt_ML >= (0.67)*(SELECT COUNT(mimouna_list_id) FROM followafter WHERE user_id = ?) \n" +
+                        "AND U.user_id != ? AND U.conunt_ML !=0 ORDER BY U.user_id ASC) \n" +
+                        "CU INNER JOIN followafter FA ON (CU.user_id = FA.user_id) \n" +
+                        "WHERE mimouna_list_id NOT IN (SELECT  mimouna_list_id FROM followafter WHERE user_id= ?)\n" +
+                        "GROUP BY mimouna_list_id\n" +
+                        "ORDER BY count_user DESC, mimouna_list_id ASC) AS TEMP ) ");
+
+                pstmt.setInt(1, userId);
+                pstmt.setInt(2, userId);
+                pstmt.setInt(3, userId);
+                pstmt.setInt(4, userId);
+                pstmt.setInt(5, userId);
+                results = pstmt.executeQuery();
+                for (int i = 0; i < 3 && results.next(); i++) {
+                    res.add(results.getInt(1));
+                }
             }
 
         } catch (SQLException e) {
@@ -1121,9 +1101,8 @@ public static ArrayList<Integer> getMimounaListRecommendation(Integer userId) {
         }
         return res;
     }
-    
-    //gai changed
-public static ArrayList<Integer> getTopPoliticianMimounaList(Integer userId) {
+
+    public static ArrayList<Integer> getTopPoliticianMimounaList(Integer userId) {
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         ArrayList<Integer> res = new ArrayList<>();
@@ -1157,7 +1136,6 @@ public static ArrayList<Integer> getTopPoliticianMimounaList(Integer userId) {
             }
 
         } catch (SQLException e) {
-            //e.printStackTrace()();
             return res;
         }
         finally {
