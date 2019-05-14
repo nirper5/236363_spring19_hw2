@@ -405,7 +405,7 @@ public class Solution {
             }
             mimouna.setId(results.getInt(1));
             mimouna.setUserName(results.getString(2));
-            mimouna.setFamilyName(results.getString(3));
+            mimouna.setFamilyname(results.getString(3));
             mimouna.setCity(results.getString(4));
             mimouna.setGuestCount(results.getInt(5));
             mimouna.setPoliticianComing(results.getBoolean(6));
@@ -1048,7 +1048,6 @@ public class Solution {
 
 
     public static ArrayList<Integer> getMimounaListRecommendation(Integer userId) {
-        if(userId==null) return new ArrayList<>();;
         Connection connection = DBConnector.getConnection();
         PreparedStatement pstmt = null;
         ArrayList<Integer> res = new ArrayList<>();
